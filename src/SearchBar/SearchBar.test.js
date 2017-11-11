@@ -35,4 +35,9 @@ describe('SearchBar', () => {
     shallowSearchBar = undefined;
     mountedSearchBar = undefined;
   });
+
+  it('should render a TextField component', () => {
+    const textField = searchBarShallow().find('TextField');
+    expect(textField.length).toEqual(1);
+  });
 });
