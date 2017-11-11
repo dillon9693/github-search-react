@@ -1,8 +1,38 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 import App from './App';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+describe('App', () => {
+  let props;
+  let shallowApp;
+  let mountedApp;
+
+  const appShallow = () => {
+    if(!shallowApp) {
+      shallowApp = shallow(
+        <App {...props} />
+      );
+    }
+    return shallowApp;
+  };
+
+  const appMounted = () => {
+    if(!mountedApp) {
+      mountedApp = mount(
+        <MuiThemeProvider>
+          <App {...props} />
+        </MuiThemeProvider>
+      );
+    }
+    return mountedApp;
+  };
+
+  beforeEach(() => {
+    props = {};
+
+    shallowApp = undefined;
+    mountedApp = undefined;
+  });
 });
