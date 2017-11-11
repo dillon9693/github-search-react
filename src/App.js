@@ -8,6 +8,14 @@ import SearchBar from './SearchBar/SearchBar';
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      results: []
+    };
+  }
+
   render() {
     return (
       <div>
@@ -17,7 +25,7 @@ class App extends Component {
         />
         <div className="search-container">
           <SearchBar />
-          <Results />
+          <Results results={this.state.results} />
         </div>
       </div>
     );
