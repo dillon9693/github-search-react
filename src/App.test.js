@@ -45,4 +45,9 @@ describe('App', () => {
     const searchBar = appShallow().find('SearchBar');
     expect(searchBar.length).toEqual(1);
   });
+
+  it('should render a Results component', () => {
+    const results = appShallow().find('Results');
+    expect(results.length).toEqual(1);
+  });
 });
