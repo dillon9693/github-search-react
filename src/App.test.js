@@ -35,4 +35,9 @@ describe('App', () => {
     shallowApp = undefined;
     mountedApp = undefined;
   });
+
+  it('should render an AppBar component', () => {
+    const appBar = appShallow().find('AppBar');
+    expect(appBar.length).toEqual(1);
+  });
 });
