@@ -40,4 +40,9 @@ describe('App', () => {
     const appBar = appShallow().find('AppBar');
     expect(appBar.length).toEqual(1);
   });
+
+  it('should render a SearchBar component', () => {
+    const searchBar = appShallow().find('SearchBar');
+    expect(searchBar.length).toEqual(1);
+  });
 });
