@@ -31,4 +31,9 @@ describe('Results', () => {
     shallowResults = undefined;
     mountedResults = undefined;
   });
+
+  it('should render a list', () => {
+    var list = resultsShallow().find('ul');
+    expect(list.length).toEqual(1);
+  });
 });
