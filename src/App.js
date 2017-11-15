@@ -16,6 +16,32 @@ class App extends Component {
     };
   }
 
+  async search(term) {
+    if(!term) {
+      this.setState({
+        results: []
+      });
+
+      return;
+    }
+
+    try {
+      const response = await get(`https://api.github.com/search/repositories?q=${term}&page=${this.state.currentPage}`);
+
+      if(response.data && response.data.items && response.data.items.length > 0) {
+        this.setState({
+          results: response.data.items
+        });
+      }
+    }
+    catch(e) {
+      this.setState({
+        results: []
+      });
+    }
+  }
+
+
   render() {
     return (
       <div>
