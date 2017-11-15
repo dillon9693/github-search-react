@@ -60,7 +60,7 @@ class App extends Component {
           title="Github Search React"
         />
         <div className="search-container">
-          <SearchBar />
+          <SearchBar handleSearchInput={this.handleSearchInput} />
           <Results results={this.state.results} />
         </div>
       </div>
