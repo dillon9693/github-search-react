@@ -2,12 +2,13 @@ import React from 'react';
 
 import TextField from 'material-ui/TextField';
 
-const SearchBar = (props) => {
+const SearchBar = ({ handleSearchInput }) => {
   return (
-    <div class="search-bar">
+    <div className="search-bar">
       <TextField
         floatingLabelText="Search"
         fullWidth
+        onChange={(e) => handleSearchInput(e.target.value)}
       />
     </div>
   );
