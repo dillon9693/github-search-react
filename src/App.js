@@ -14,6 +14,12 @@ class App extends Component {
     this.state = {
       results: []
     };
+
+    this.searchDebounce = null;
+
+    this.handleSearchInput = this.handleSearchInput.bind(this);
+  }
+
   handleSearchInput(term) {
     clearTimeout(this.searchDebounce);
     this.searchDebounce = setTimeout(() => this.search(term), 500);
