@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { get } from 'axios';
 
 import AppBar from 'material-ui/AppBar';
 
