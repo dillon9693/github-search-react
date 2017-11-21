@@ -40,4 +40,11 @@ describe('SearchBar', () => {
     const textField = searchBarShallow().find('TextField');
     expect(textField.length).toEqual(1);
   });
+
+  it('should call the handleSearchInput function when text is entered', () => {
+    props.handleSearchInput = jest.fn();
+
+    searchBarShallow().find('TextField').simulate('change', { target: { value: 'test' } });
+    expect(props.handleSearchInput.mock.calls.length).toEqual(1);
+  });
 });
