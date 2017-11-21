@@ -19,7 +19,7 @@
   padding-left: 0;
   padding-right: 0;
 }
-.results-container li {
+.results-container .repo-result {
   width: 100%;
   margin: 5px 0;
   border: 1px solid #CCC;
@@ -27,21 +27,21 @@
   box-shadow: 0 2px 5px #CCC;
   transition: 0.3s all;
 }
-.results-container li > a {
+.results-container .repo-result > a {
   display: block;
   padding: 20px 10px;
   color: #444;
   text-decoration: none;
 }
-.results-container li:hover {
+.results-container .repo-result:hover {
   background: #EEE;
 }
 
 
-.results-container li .title {
+.results-container .repo-result .title {
   font-weight: bold;
 }
-.results-container li .owner {
+.results-container .repo-result .owner {
   display: block;
   margin-top: 1em;
   color: #444;
