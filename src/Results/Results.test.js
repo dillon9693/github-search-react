@@ -36,8 +36,8 @@ describe('Results', () => {
     mountedResults = undefined;
   });
 
-  it('should render a list', () => {
-    var list = resultsShallow().find('ul');
+  it('should render a div with results-container class', () => {
+    var list = resultsShallow().find('div.results-container');
     expect(list.length).toEqual(1);
   });
 
