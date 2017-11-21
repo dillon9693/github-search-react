@@ -2,6 +2,8 @@ import React from 'react';
 
 import Results from './Results';
 
+import repositoryMock from '../__mocks__/repositoryMock';
+
 describe('Results', () => {
   let props;
   let shallowResults;
