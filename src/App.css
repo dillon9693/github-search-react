@@ -7,7 +7,7 @@
 
 .search-container {
   max-width: 700px;
-  margin: 50px 20px;
+  margin: 10px 20px;
 }
 
 .search-bar {
@@ -52,6 +52,7 @@
 
 @media screen and (min-width: 767px) {
   .search-container {
-    margin: 50px auto;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
