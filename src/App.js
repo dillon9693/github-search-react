@@ -14,7 +14,8 @@ class App extends Component {
 
     this.state = {
       currentPage: 1,
-      results: []
+      results: [],
+      searchTerm: ''
     };
 
     this.searchDebounce = null;
@@ -30,7 +31,8 @@ class App extends Component {
   async search(term) {
     if(!term) {
       this.setState({
-        results: []
+        results: [],
+        searchTerm: term
       });
 
       return;
@@ -38,16 +40,15 @@ class App extends Component {
 
     try {
       const response = await get(`https://api.github.com/search/repositories?q=${term}&page=${this.state.currentPage}`);
-
-      if(response.data && response.data.items && response.data.items.length > 0) {
-        this.setState({
-          results: response.data.items
-        });
-      }
+      this.setState({
+        results: response.data.items,
+        searchTerm: term
+      });
     }
     catch(e) {
       this.setState({
-        results: []
+        results: [],
+        searchTerm: term
       });
     }
   }
