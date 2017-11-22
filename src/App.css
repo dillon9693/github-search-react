@@ -10,11 +10,6 @@
   margin: 10px 20px;
 }
 
-.results-container {
-  list-style: none;
-  padding-left: 0;
-  padding-right: 0;
-}
 .results-container .repo-result {
   width: 100%;
   margin: 5px 0;
