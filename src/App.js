@@ -67,7 +67,9 @@ class App extends Component {
           {
             searchTerm.length > 0
             ? <Results results={results} searchTerm={searchTerm} />
-            : null
+            : <div className="results-empty">
+                Search for Github repositories using the search bar above
+              </div>
           }
         </div>
       </div>
