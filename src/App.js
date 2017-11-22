@@ -53,8 +53,9 @@ class App extends Component {
     }
   }
 
-
   render() {
+    const { searchTerm, results } = this.state;
+
     return (
       <div>
         <AppBar
@@ -63,7 +64,11 @@ class App extends Component {
         />
         <div className="search-container">
           <SearchBar handleSearchInput={this.handleSearchInput} />
-          <Results results={this.state.results} />
+          {
+            searchTerm.length > 0
+            ? <Results results={results} searchTerm={searchTerm} />
+            : null
+          }
         </div>
       </div>
     );
