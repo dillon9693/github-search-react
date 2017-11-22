@@ -10,7 +10,7 @@ const Results = ({ results, searchTerm }) => {
         ? results.map((result) => {
             return <RepoResult key={result.id} result={result} />
           })
-        : <div class="results-empty">No results found for "<span class="text-bold">{searchTerm}</span>".</div>
+        : <div className="results-empty">No results found for "<span class="text-bold">{searchTerm}</span>".</div>
       }
     </div>
   );
