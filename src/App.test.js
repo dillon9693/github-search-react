@@ -46,8 +46,8 @@ describe('App', () => {
     expect(searchBar.length).toEqual(1);
   });
 
-  it('should render a Results component', () => {
+  it('should not render a Results component if the search term is empty', () => {
     const results = appShallow().find('Results');
-    expect(results.length).toEqual(1);
+    expect(results.length).toEqual(0);
   });
 });
