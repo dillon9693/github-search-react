@@ -41,7 +41,7 @@ describe('Results', () => {
     expect(list.length).toEqual(1);
   });
 
-  it('should not render any RepoResult component', () => {
+  it('should not render a RepoResult component', () => {
     var repoResults = resultsShallow().find('RepoResult');
     expect(repoResults.length).toEqual(0);
   });
