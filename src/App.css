@@ -14,7 +14,6 @@
   width: 100%;
   margin: 5px 0;
   border: 1px solid #CCC;
-  border-radius: 5px;
   box-shadow: 0 2px 5px #CCC;
   transition: 0.3s all;
 }
@@ -35,9 +34,8 @@
 .results-container .repo-result .owner {
   display: block;
   margin-top: 1em;
-  color: #444;
 }
-.results-container li .description {
+.results-container .repo-result .description {
   margin-top: 1em;
 }
 
