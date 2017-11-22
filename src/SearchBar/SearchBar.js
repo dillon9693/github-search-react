@@ -4,7 +4,7 @@ import TextField from 'material-ui/TextField';
 
 const SearchBar = ({ handleSearchInput }) => {
   return (
-    <div className="search-bar">
+    <div>
       <TextField
         floatingLabelText="Search"
         fullWidth
