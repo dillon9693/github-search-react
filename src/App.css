@@ -1,28 +1,43 @@
-.App {
-  text-align: center;
+.search-container {
+  max-width: 700px;
+  margin: 10px 20px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.results-empty {
+  margin: 1em 0;
+}
+.results-container .repo-result {
+  width: 100%;
+  margin: 5px 0;
+  border: 1px solid #CCC;
+  box-shadow: 0 2px 5px #CCC;
+  transition: 0.3s all;
+}
+.results-container .repo-result > a {
+  display: block;
+  padding: 20px 10px;
+  color: #444;
+  text-decoration: none;
+}
+.results-container .repo-result:hover {
+  background: #EEE;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+
+.results-container .repo-result .title {
+  font-weight: bold;
+}
+.results-container .repo-result .owner {
+  display: block;
+  margin-top: 1em;
+}
+.results-container .repo-result .description {
+  margin-top: 1em;
 }
 
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+@media screen and (min-width: 767px) {
+  .search-container {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
