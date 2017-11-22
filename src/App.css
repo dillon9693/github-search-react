@@ -3,6 +3,9 @@
   margin: 10px 20px;
 }
 
+.results-container .results-empty {
+  margin: 1em 0;
+}
 .results-container .repo-result {
   width: 100%;
   margin: 5px 0;
