@@ -50,4 +50,10 @@ describe('App', () => {
     const results = appShallow().find('Results');
     expect(results.length).toEqual(0);
   });
+
+  it('should render a Results component if the search term is set', () => {
+    const app = appShallow();
+    app.setState({ searchTerm: 'test' });
+    expect(app.find('Results').length).toEqual(1);
+  });
 });
