@@ -1,0 +1,29 @@
+.search-options {
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+}
+.search-options-panel {
+  max-height: 0;
+  overflow: auto;
+  padding: 0 10px;
+  transition: max-height 800ms ease-in-out 0ms;
+}
+.search-options-panel-open {
+  max-height: 1000px;
+}
+.search-options-panel-content {
+  padding: 10px 0;
+}
+.search-options-toggle-panel {
+  background-color: #E8E8E8;
+  border: 1px solid transparent;
+  cursor: pointer;
+  display: flex;
+  height: 30px;
+  justify-content: space-between;
+  padding: 0 12px;
+}
+.search-options-toggle-panel-content {
+  align-items: center;
+  display: flex;
+  position: relative;
+}
