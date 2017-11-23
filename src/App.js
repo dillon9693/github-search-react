@@ -47,7 +47,14 @@ class App extends Component {
   }
 
   async search(searchTerm) {
-    const results = await searchRepositories(searchTerm);
+    const { displayOptions, sortFilter } = this.state;
+    const options = {};
+
+    if(displayOptions) {
+      options.sort = sortFilter;
+    }
+
+    const results = await searchRepositories(searchTerm, options);
 
     this.setState({
       results,
