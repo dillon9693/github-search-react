@@ -13,7 +13,12 @@ describe('Github API functions', () => {
     });
 
     it('should return an empty array if the term isn\'t set', async () => {
-      const results = await searchRepositories('');
+      const results = await searchRepositories();
+      expect(results).toEqual([]);
+    });
+
+    it('should return an empty array if the term is the empty string', async () => {
+      const results = await searchRepositories();
       expect(results).toEqual([]);
     });
 
