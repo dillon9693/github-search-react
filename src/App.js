@@ -43,7 +43,7 @@ class App extends Component {
   handleSortFilterChange(event, index, value) {
     this.setState({
       sortFilter: value
-    });
+    }, () => this.search(this.state.searchTerm));
   }
 
   async search(searchTerm) {
