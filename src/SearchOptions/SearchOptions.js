@@ -1,5 +1,9 @@
 import React from 'react';
 
+import IconButton from 'material-ui/IconButton';
+import ArrowDown from 'material-ui/svg-icons/hardware/keyboard-arrow-down';
+import ArrowRight from 'material-ui/svg-icons/hardware/keyboard-arrow-right';
+
 const styles = {
   'search-options': {
     boxShadow: 'rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px'
@@ -45,6 +49,12 @@ const SearchOptions = ({ open }) => {
         style={styles['search-options-toggle-panel']}
       >
         <div style={styles['search-options-toggle-panel-content']}>
+          <IconButton>
+          { open
+            ? <ArrowDown />
+            : <ArrowRight />
+          }
+          </IconButton>
           <span>Advanced Search</span>
         </div>
       </div>
