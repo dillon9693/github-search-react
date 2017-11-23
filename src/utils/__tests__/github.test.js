@@ -11,5 +11,31 @@ describe('Github API functions', () => {
     beforeEach(() => {
       axiosMock = new mockAdapter(axios);
     });
+
+    it('should return an empty array if the term isn\'t set', async () => {
+      const results = await searchRepositories('');
+      expect(results).toEqual([]);
+    });
+
+    it('should return an empty array of no results are returned from the API', async () =>{
+      axiosMock.onGet().reply(200, {
+        items: []
+      });
+
+      const results = await searchRepositories('test');
+      expect(results.length).toEqual(0);
+    });
+
+    it('should return an array of elements when searching', async () => {
+      axiosMock.onGet().reply(200, {
+        items: [
+          repositoryMock,
+          repositoryMock
+        ]
+      });
+
+      const results = await searchRepositories('test');
+      expect(results.length).toEqual(2);
+    });
   });
 });
