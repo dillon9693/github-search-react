@@ -2,12 +2,19 @@ import React from 'react';
 
 import IconButton from 'material-ui/IconButton';
 import MenuItem from 'material-ui/MenuItem';
+import SelectField  from 'material-ui/SelectField';
+
 import ArrowDown from 'material-ui/svg-icons/hardware/keyboard-arrow-down';
 import ArrowRight from 'material-ui/svg-icons/hardware/keyboard-arrow-right';
 
 import './SearchOptions.css';
 
-const SearchOptions = ({ handleToggle, open }) => {
+const SearchOptions = ({
+  handleSortFilterChange,
+  handleToggle,
+  open,
+  sortFilter
+}) => {
   const panelClasses =
     open
     ? 'search-options-panel search-options-panel-open'
@@ -31,7 +38,14 @@ const SearchOptions = ({ handleToggle, open }) => {
       </div>
       <div className={panelClasses}>
         <div className='search-options-panel-content'>
-          <div>Search Contents</div>
+          <SelectField
+            floatingLabelText='Sort By'
+            floatingLabelFixed
+            onChange={handleSortFilterChange}
+            value={sortFilter}
+          >
+            {buildSortOptions()}
+          </SelectField>
         </div>
       </div>
     </div>
