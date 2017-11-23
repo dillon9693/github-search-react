@@ -15,6 +15,7 @@ class App extends Component {
 
     this.state = {
       currentPage: 1,
+      displayOptions: false,
       results: [],
       searchTerm: ''
     };
@@ -55,7 +56,7 @@ class App extends Component {
   }
 
   render() {
-    const { searchTerm, results } = this.state;
+    const { displayOptions, searchTerm, results } = this.state;
 
     return (
       <div>
@@ -65,7 +66,9 @@ class App extends Component {
         />
         <div className="search-container">
           <SearchBar handleSearchInput={this.handleSearchInput} />
-          <SearchOptions />
+          <SearchOptions
+            open={displayOptions}
+          />
           {
             searchTerm.length > 0
             ? <Results results={results} searchTerm={searchTerm} />
