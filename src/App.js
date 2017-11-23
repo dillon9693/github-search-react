@@ -22,7 +22,14 @@ class App extends Component {
 
     this.searchDebounce = null;
 
+    this.handleOptionsToggle = this.handleOptionsToggle.bind(this);
     this.handleSearchInput = this.handleSearchInput.bind(this);
+  }
+
+  handleOptionsToggle() {
+    this.setState({
+      displayOptions: !this.state.displayOptions
+    });
   }
 
   handleSearchInput(term) {
@@ -67,6 +74,7 @@ class App extends Component {
         <div className="search-container">
           <SearchBar handleSearchInput={this.handleSearchInput} />
           <SearchOptions
+            handleToggle={this.handleOptionsToggle}
             open={displayOptions}
           />
           {
