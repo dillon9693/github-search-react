@@ -1,6 +1,7 @@
 import React from 'react';
 
 import IconButton from 'material-ui/IconButton';
+import MenuItem from 'material-ui/MenuItem';
 import ArrowDown from 'material-ui/svg-icons/hardware/keyboard-arrow-down';
 import ArrowRight from 'material-ui/svg-icons/hardware/keyboard-arrow-right';
 
@@ -38,3 +39,12 @@ const SearchOptions = ({ handleToggle, open }) => {
 }
 
 export default SearchOptions;
+
+function buildSortOptions() {
+  return [
+    <MenuItem key={1} value='' primaryText='Best Match' />,
+    <MenuItem key={2} value='forks' primaryText='Forks' />,
+    <MenuItem key={3} value='stars' primaryText='Stars' />,
+    <MenuItem key={4} value='updated' primaryText='Last Updated' />
+  ];
+}
