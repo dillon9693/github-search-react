@@ -10,6 +10,9 @@ const styles = {
     padding: '0 10px',
     transition: 'max-height 800ms ease-in-out 0ms'
   },
+  'search-options-panel-open': {
+    maxHeight: '1000px'
+  },
   'search-options-panel-content': {
     padding: '10px 0'
   },
@@ -30,7 +33,12 @@ const styles = {
   }
 };
 
-const SearchOptions = (props) => {
+const SearchOptions = ({ open }) => {
+  const panelStyles =
+    open
+    ? {...styles['search-options-panel'], ...styles['search-options-panel-open']}
+    : styles['search-options-panel'];
+
   return (
     <div style={styles['search-options']}>
       <div
@@ -40,7 +48,7 @@ const SearchOptions = (props) => {
           <span>Advanced Search</span>
         </div>
       </div>
-      <div style={styles['search-options-panel']}>
+      <div style={panelStyles}>
         <div style={styles['search-options-panel-content']}>
           <div>Search Contents</div>
         </div>
