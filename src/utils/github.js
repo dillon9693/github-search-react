@@ -3,7 +3,7 @@
  */
 import { get } from 'axios';
 
-export const GITHUB_API_URL = 'https://api.github.com';
+const GITHUB_API_URL = 'https://api.github.com';
 
 export const searchRepositories = async (term, { sort = '', order = 'desc', page = 1 } = {}) => {
   if(!term) {
