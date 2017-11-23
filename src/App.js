@@ -24,6 +24,7 @@ class App extends Component {
     this.searchDebounce = null;
 
     this.handleOptionsToggle = this.handleOptionsToggle.bind(this);
+    this.handleSortFilterChange = this.handleSortFilterChange.bind(this);
     this.handleSearchInput = this.handleSearchInput.bind(this);
   }
 
@@ -36,6 +37,12 @@ class App extends Component {
   handleSearchInput(term) {
     clearTimeout(this.searchDebounce);
     this.searchDebounce = setTimeout(() => this.search(term), 500);
+  }
+
+  handleSortFilterChange(event, index, value) {
+    this.setState({
+      sortFilter: value
+    });
   }
 
   async search(term) {
@@ -74,6 +81,7 @@ class App extends Component {
         <div className="search-container">
           <SearchBar handleSearchInput={this.handleSearchInput} />
           <SearchOptions
+            handleSortFilterChange={this.handleSortFilterChange}
             handleToggle={this.handleOptionsToggle}
             open={displayOptions}
             sortFilter={sortFilter}
