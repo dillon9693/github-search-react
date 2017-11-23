@@ -37,7 +37,7 @@ const styles = {
   }
 };
 
-const SearchOptions = ({ open }) => {
+const SearchOptions = ({ handleToggle, open }) => {
   const panelStyles =
     open
     ? {...styles['search-options-panel'], ...styles['search-options-panel-open']}
@@ -46,6 +46,7 @@ const SearchOptions = ({ open }) => {
   return (
     <div style={styles['search-options']}>
       <div
+        onClick={handleToggle}
         style={styles['search-options-toggle-panel']}
       >
         <div style={styles['search-options-toggle-panel-content']}>
