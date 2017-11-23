@@ -5,6 +5,7 @@ import AppBar from 'material-ui/AppBar';
 
 import Results from './Results/Results';
 import SearchBar from './SearchBar/SearchBar';
+import SearchOptions from './SearchOptions/SearchOptions';
 
 import './App.css';
 
@@ -64,6 +65,7 @@ class App extends Component {
         />
         <div className="search-container">
           <SearchBar handleSearchInput={this.handleSearchInput} />
+          <SearchOptions />
           {
             searchTerm.length > 0
             ? <Results results={results} searchTerm={searchTerm} />
