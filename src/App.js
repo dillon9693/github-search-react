@@ -17,6 +17,7 @@ class App extends Component {
       currentPage: 1,
       displayOptions: false,
       results: [],
+      sortFilter: '',
       searchTerm: ''
     };
 
@@ -63,8 +64,7 @@ class App extends Component {
   }
 
   render() {
-    const { displayOptions, searchTerm, results } = this.state;
-
+    const { displayOptions, searchTerm, sortFilter, results } = this.state;
     return (
       <div>
         <AppBar
@@ -76,6 +76,7 @@ class App extends Component {
           <SearchOptions
             handleToggle={this.handleOptionsToggle}
             open={displayOptions}
+            sortFilter={sortFilter}
           />
           {
             searchTerm.length > 0
