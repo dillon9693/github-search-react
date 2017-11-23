@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { get } from 'axios';
 
 import AppBar from 'material-ui/AppBar';
 
 import Results from './Results/Results';
 import SearchBar from './SearchBar/SearchBar';
+
+import { searchRepositories } from './utils/github';
 
 import './App.css';
 
@@ -28,29 +29,13 @@ class App extends Component {
     this.searchDebounce = setTimeout(() => this.search(term), 500);
   }
 
-  async search(term) {
-    if(!term) {
-      this.setState({
-        results: [],
-        searchTerm: term
-      });
+  async search(searchTerm) {
+    const results = await searchRepositories(searchTerm);
 
-      return;
-    }
-
-    try {
-      const response = await get(`https://api.github.com/search/repositories?q=${term}&page=${this.state.currentPage}`);
-      this.setState({
-        results: response.data.items,
-        searchTerm: term
-      });
-    }
-    catch(e) {
-      this.setState({
-        results: [],
-        searchTerm: term
-      });
-    }
+    this.setState({
+      results,
+      searchTerm
+    });
   }
 
   render() {
