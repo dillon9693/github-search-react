@@ -33,7 +33,7 @@ const SearchOptions = ({
             : <ArrowRight />
           }
           </IconButton>
-          <span>Advanced Search</span>
+          <span>Filters</span>
         </div>
       </div>
       <div className={panelClasses}>
