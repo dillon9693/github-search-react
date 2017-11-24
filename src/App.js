@@ -24,12 +24,12 @@ class App extends Component {
 
     this.searchDebounce = null;
 
-    this.handleOptionsToggle = this.handleOptionsToggle.bind(this);
+    this.handleSearchOptionsToggle = this.handleSearchOptionsToggle.bind(this);
     this.handleSortFilterChange = this.handleSortFilterChange.bind(this);
     this.handleSearchInput = this.handleSearchInput.bind(this);
   }
 
-  handleOptionsToggle() {
+  handleSearchOptionsToggle() {
     this.setState({
       displaySearchOptions: !this.state.displaySearchOptions
     });
@@ -77,7 +77,7 @@ class App extends Component {
           />
           <SearchOptions
             handleSortFilterChange={this.handleSortFilterChange}
-            handleToggle={this.handleOptionsToggle}
+            handleToggle={this.handleSearchOptionsToggle}
             open={displaySearchOptions}
             sortFilter={sortFilter}
           />
