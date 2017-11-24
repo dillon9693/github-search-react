@@ -16,7 +16,7 @@ class App extends Component {
 
     this.state = {
       currentPage: 1,
-      displayOptions: false,
+      displaySearchOptions: false,
       results: [],
       sortFilter: '',
       searchTerm: ''
@@ -31,7 +31,7 @@ class App extends Component {
 
   handleOptionsToggle() {
     this.setState({
-      displayOptions: !this.state.displayOptions
+      displaySearchOptions: !this.state.displaySearchOptions
     });
   }
 
@@ -47,10 +47,10 @@ class App extends Component {
   }
 
   async search(searchTerm) {
-    const { displayOptions, sortFilter } = this.state;
+    const { displaySearchOptions, sortFilter } = this.state;
     const options = {};
 
-    if(displayOptions) {
+    if(displaySearchOptions) {
       options.sort = sortFilter;
     }
 
@@ -63,7 +63,7 @@ class App extends Component {
   }
 
   render() {
-    const { displayOptions, searchTerm, sortFilter, results } = this.state;
+    const { displaySearchOptions, searchTerm, sortFilter, results } = this.state;
     return (
       <div>
         <AppBar
@@ -78,7 +78,7 @@ class App extends Component {
           <SearchOptions
             handleSortFilterChange={this.handleSortFilterChange}
             handleToggle={this.handleOptionsToggle}
-            open={displayOptions}
+            open={displaySearchOptions}
             sortFilter={sortFilter}
           />
           {
