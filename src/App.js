@@ -24,12 +24,10 @@ class App extends Component {
 
     this.searchDebounce = null;
 
-    this.handleSearchOptionsToggle = this.handleSearchOptionsToggle.bind(this);
-    this.handleSortFilterChange = this.handleSortFilterChange.bind(this);
     this.handleSearchInput = this.handleSearchInput.bind(this);
   }
 
-  handleSearchOptionsToggle() {
+  handleSearchOptionsToggle = () => {
     this.setState({
       displaySearchOptions: !this.state.displaySearchOptions
     });
@@ -40,7 +38,7 @@ class App extends Component {
     this.searchDebounce = setTimeout(() => this.search(term), 500);
   }
 
-  handleSortFilterChange(event, index, value) {
+  handleSortFilterChange = (event, index, value) => {
     this.setState({
       sortFilter: value
     }, () => this.search(this.state.searchTerm));
