@@ -71,7 +71,10 @@ class App extends Component {
           title="Github Search React"
         />
         <div className="search-container">
-          <SearchBar handleSearchInput={this.handleSearchInput} />
+          <SearchBar
+            handleSearchInput={this.handleSearchInput}
+            sortFilter={sortFilter}
+          />
           <SearchOptions
             handleSortFilterChange={this.handleSortFilterChange}
             handleToggle={this.handleOptionsToggle}
