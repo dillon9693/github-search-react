@@ -27,7 +27,10 @@ describe('SearchOptions', () => {
 
   beforeEach(() => {
     props = {
-      
+      handleSortFilterChange: () => false,
+      handleToggle: () => false,
+      open: false,
+      sortFilter: ''
     };
 
     shallowSearchOptions = undefined;
