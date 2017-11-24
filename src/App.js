@@ -27,15 +27,15 @@ class App extends Component {
     this.handleSearchInput = this.handleSearchInput.bind(this);
   }
 
+  handleSearchInput(term) {
+    clearTimeout(this.searchDebounce);
+    this.searchDebounce = setTimeout(() => this.search(term), 500);
+  }
+
   handleSearchOptionsToggle = () => {
     this.setState({
       displaySearchOptions: !this.state.displaySearchOptions
     });
-  }
-
-  handleSearchInput(term) {
-    clearTimeout(this.searchDebounce);
-    this.searchDebounce = setTimeout(() => this.search(term), 500);
   }
 
   handleSortFilterChange = (event, index, value) => {
