@@ -59,6 +59,6 @@ function buildSortOptions() {
     <MenuItem key={1} value='' primaryText='Best Match' />,
     <MenuItem key={2} value='forks' primaryText='Forks' />,
     <MenuItem key={3} value='stars' primaryText='Stars' />,
-    <MenuItem key={4} value='updated' primaryText='Last Updated' />
+    <MenuItem key={4} value='updated' primaryText='Recently Updated' />
   ];
 }
