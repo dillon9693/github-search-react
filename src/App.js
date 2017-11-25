@@ -4,6 +4,7 @@ import AppBar from 'material-ui/AppBar';
 
 import Results from './Results/Results';
 import SearchBar from './SearchBar/SearchBar';
+import SearchOptions from './SearchOptions/SearchOptions';
 
 import { searchRepositories } from './utils/github';
 
@@ -15,7 +16,9 @@ class App extends Component {
 
     this.state = {
       currentPage: 1,
+      displaySearchOptions: false,
       results: [],
+      sortFilter: '',
       searchTerm: ''
     };
 
@@ -29,8 +32,27 @@ class App extends Component {
     this.searchDebounce = setTimeout(() => this.search(term), 500);
   }
 
+  handleSearchOptionsToggle = () => {
+    this.setState({
+      displaySearchOptions: !this.state.displaySearchOptions
+    });
+  }
+
+  handleSortFilterChange = (event, index, value) => {
+    this.setState({
+      sortFilter: value
+    }, () => this.search(this.state.searchTerm));
+  }
+
   async search(searchTerm) {
-    const results = await searchRepositories(searchTerm);
+    const { displaySearchOptions, sortFilter } = this.state;
+    const options = {};
+
+    if(displaySearchOptions) {
+      options.sort = sortFilter;
+    }
+
+    const results = await searchRepositories(searchTerm, options);
 
     this.setState({
       results,
@@ -39,7 +61,7 @@ class App extends Component {
   }
 
   render() {
-    const { searchTerm, results } = this.state;
+    const { displaySearchOptions, searchTerm, sortFilter, results } = this.state;
 
     return (
       <div>
@@ -48,7 +70,16 @@ class App extends Component {
           title="Github Search React"
         />
         <div className="search-container">
-          <SearchBar handleSearchInput={this.handleSearchInput} />
+          <SearchBar
+            handleSearchInput={this.handleSearchInput}
+            sortFilter={sortFilter}
+          />
+          <SearchOptions
+            handleSortFilterChange={this.handleSortFilterChange}
+            handleToggle={this.handleSearchOptionsToggle}
+            open={displaySearchOptions}
+            sortFilter={sortFilter}
+          />
           {
             searchTerm.length > 0
             ? <Results results={results} searchTerm={searchTerm} />

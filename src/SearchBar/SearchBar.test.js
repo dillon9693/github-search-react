@@ -41,6 +41,30 @@ describe('SearchBar', () => {
     expect(textField.length).toEqual(1);
   });
 
+  it('should render a label with \'Sorted by Best Match\' when the sort filter is empty', () => {
+    props.sortFilter = '';
+    const textField = searchBarMounted().find('TextField');
+    expect(textField.find('label').text()).toEqual('Search (sorted by Best Match)');
+  });
+
+  it('should render a label with \'Sorted by Forks\' when the sort filter is forks', () => {
+    props.sortFilter = 'forks';
+    const textField = searchBarMounted().find('TextField');
+    expect(textField.find('label').text()).toEqual('Search (sorted by Forks)');
+  });
+
+  it('should render a label with \'Sorted by Stars\' when the sort filter is stars', () => {
+    props.sortFilter = 'stars';
+    const textField = searchBarMounted().find('TextField');
+    expect(textField.find('label').text()).toEqual('Search (sorted by Stars)');
+  });
+
+  it('should render a label with \'Sorted by Recently Updated\' when the sort filter is updated', () => {
+    props.sortFilter = 'updated';
+    const textField = searchBarMounted().find('TextField');
+    expect(textField.find('label').text()).toEqual('Search (sorted by Recently Updated)');
+  });
+
   it('should call the handleSearchInput function when text is entered', () => {
     props.handleSearchInput = jest.fn();
 
