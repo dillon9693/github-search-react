@@ -4,8 +4,8 @@ import IconButton from 'material-ui/IconButton';
 import MenuItem from 'material-ui/MenuItem';
 import SelectField  from 'material-ui/SelectField';
 
-import ArrowDown from 'material-ui/svg-icons/hardware/keyboard-arrow-down';
-import ArrowRight from 'material-ui/svg-icons/hardware/keyboard-arrow-right';
+import HardwareKeyboardArrowDown from 'material-ui/svg-icons/hardware/keyboard-arrow-down';
+import HardwareKeyboardArrowRight from 'material-ui/svg-icons/hardware/keyboard-arrow-right';
 
 import './SearchOptions.css';
 
@@ -29,8 +29,8 @@ const SearchOptions = ({
         <div className='search-options-toggle-panel-content'>
           <IconButton>
           { open
-            ? <ArrowDown />
-            : <ArrowRight />
+            ? <HardwareKeyboardArrowDown />
+            : <HardwareKeyboardArrowRight />
           }
           </IconButton>
           <span>Filters</span>
