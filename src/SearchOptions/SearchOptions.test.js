@@ -53,6 +53,17 @@ describe('SearchOptions', () => {
     expect(menuItems.get(3).props.value).toEqual('updated');
   });
 
+  it('displays the HardwareKeyboardArrowRight SVG icon when the search options panel is closed', () => {
+    const panelContent = searchOptionsShallow().find('.search-options-toggle-panel-content IconButton HardwareKeyboardArrowRight');
+    expect(panelContent.length).toEqual(1);
+  });
+
+  it('displays the HardwareKeyboardArrowDown SVG icon when the search options panel is open', () => {
+    props.open = true;
+    const panelContent = searchOptionsShallow().find('.search-options-toggle-panel-content IconButton HardwareKeyboardArrowDown');
+    expect(panelContent.length).toEqual(1);
+  });
+
   it('calls handleSortFilterChange function when the sort filter SelectField is changed', () => {
     props.handleSortFilterChange = jest.fn();
     const select = searchOptionsShallow().find('SelectField');
