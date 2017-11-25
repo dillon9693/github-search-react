@@ -62,6 +62,7 @@ class App extends Component {
 
   render() {
     const { displaySearchOptions, searchTerm, sortFilter, results } = this.state;
+
     return (
       <div>
         <AppBar
