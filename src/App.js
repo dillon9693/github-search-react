@@ -19,7 +19,8 @@ class App extends Component {
       displaySearchOptions: false,
       results: [],
       sortFilter: '',
-      searchTerm: ''
+      searchTerm: '',
+      searchType: 'repositories'
     };
 
     this.searchDebounce = null;
@@ -61,7 +62,7 @@ class App extends Component {
   }
 
   render() {
-    const { displaySearchOptions, searchTerm, sortFilter, results } = this.state;
+    const { displaySearchOptions, searchTerm, searchType, sortFilter, results } = this.state;
 
     return (
       <div>
@@ -79,6 +80,7 @@ class App extends Component {
             handleToggle={this.handleSearchOptionsToggle}
             open={displaySearchOptions}
             sortFilter={sortFilter}
+            searchType={searchType}
           />
           {
             searchTerm.length > 0
