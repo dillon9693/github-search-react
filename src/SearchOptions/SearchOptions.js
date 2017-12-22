@@ -13,6 +13,7 @@ const SearchOptions = ({
   handleSortFilterChange,
   handleToggle,
   open,
+  searchType,
   sortFilter
 }) => {
   const panelClasses =
@@ -44,7 +45,7 @@ const SearchOptions = ({
             onChange={handleSortFilterChange}
             value={sortFilter}
           >
-            {buildSortOptions()}
+            {buildSortOptions(searchType)}
           </SelectField>
         </div>
       </div>
@@ -54,11 +55,19 @@ const SearchOptions = ({
 
 export default SearchOptions;
 
-function buildSortOptions() {
-  return [
-    <MenuItem key={1} value='' primaryText='Best Match' />,
-    <MenuItem key={2} value='forks' primaryText='Forks' />,
-    <MenuItem key={3} value='stars' primaryText='Stars' />,
-    <MenuItem key={4} value='updated' primaryText='Recently Updated' />
-  ];
+function buildSortOptions(type) {
+  const sortOptionsByType = {
+    repositories: {
+      'Best Match': '',
+      'Forks': 'forks',
+      'Stars': 'stars',
+      'Recently Updated': 'updated'
+    },
+  };
+
+  return Object.keys(sortOptionsByType[type])
+              .map((key, index) => {
+                console.log(key);
+                return <MenuItem key={index} value={sortOptionsByType[type][key]} primaryText={key} />
+              });
 }
