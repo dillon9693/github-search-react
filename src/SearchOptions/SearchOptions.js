@@ -58,16 +58,18 @@ export default SearchOptions;
 function buildSortOptions(type) {
   const sortOptionsByType = {
     repositories: {
-      'Best Match': '',
-      'Forks': 'forks',
-      'Stars': 'stars',
-      'Recently Updated': 'updated'
+      forks: 'Forks',
+      stars: 'Stars',
+      updated: 'Recently Updated'
     },
   };
 
-  return Object.keys(sortOptionsByType[type])
-              .map((key, index) => {
-                console.log(key);
-                return <MenuItem key={index} value={sortOptionsByType[type][key]} primaryText={key} />
-              });
+  return [
+    <MenuItem value='' primaryText='Best Match' />,
+    ...Object.keys(sortOptionsByType[type])
+          .map((key, index) => {
+            return <MenuItem key={index} value={key} primaryText={sortOptionsByType[type][key]} />
+          })
+  ];
+
 }
