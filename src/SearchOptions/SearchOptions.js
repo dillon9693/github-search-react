@@ -62,6 +62,11 @@ function buildSortOptions(type) {
       stars: 'Stars',
       updated: 'Recently Updated'
     },
+    users: {
+      followers: 'Followers',
+      joined: 'Recently Joined',
+      repositories: 'Repositories',
+    },
   };
 
   return [
