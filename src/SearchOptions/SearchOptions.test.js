@@ -30,6 +30,7 @@ describe('SearchOptions', () => {
       handleSortFilterChange: () => false,
       handleToggle: () => false,
       open: false,
+      searchType: 'repositories',
       sortFilter: ''
     };
 
