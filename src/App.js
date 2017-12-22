@@ -39,6 +39,19 @@ class App extends Component {
     });
   }
 
+  handleSearchTypeChange = (event, index, value) => {
+    // search type didn't actually change
+    if(value === this.state.searchType) {
+      return;
+    }
+
+    this.setState({
+      searchTerm: '',
+      searchType: value,
+      sortFilter: ''
+    });
+  }
+
   handleSortFilterChange = (event, index, value) => {
     this.setState({
       sortFilter: value
@@ -76,6 +89,7 @@ class App extends Component {
             sortFilter={sortFilter}
           />
           <SearchOptions
+            handleSearchTypeChange={this.handleSearchTypeChange}
             handleSortFilterChange={this.handleSortFilterChange}
             handleToggle={this.handleSearchOptionsToggle}
             open={displaySearchOptions}
