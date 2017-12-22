@@ -7,6 +7,8 @@ import SelectField  from 'material-ui/SelectField';
 import HardwareKeyboardArrowDown from 'material-ui/svg-icons/hardware/keyboard-arrow-down';
 import HardwareKeyboardArrowRight from 'material-ui/svg-icons/hardware/keyboard-arrow-right';
 
+import { SORT_FILTER_SELECT_OPTIONS_BY_TYPE } from '../utils/constants';
+
 import './SearchOptions.css';
 
 const SearchOptions = ({
@@ -67,24 +69,11 @@ const SearchOptions = ({
 export default SearchOptions;
 
 function buildSortOptions(type) {
-  const sortOptionsByType = {
-    repositories: {
-      forks: 'Forks',
-      stars: 'Stars',
-      updated: 'Recently Updated'
-    },
-    users: {
-      followers: 'Followers',
-      joined: 'Recently Joined',
-      repositories: 'Repositories',
-    },
-  };
-
   return [
-    <MenuItem value='' primaryText='Best Match' />,
-    ...Object.keys(sortOptionsByType[type])
+    <MenuItem key={''} value='' primaryText='Best Match' />,
+    ...Object.keys(SORT_FILTER_SELECT_OPTIONS_BY_TYPE[type])
           .map((key, index) => {
-            return <MenuItem key={index} value={key} primaryText={sortOptionsByType[type][key]} />
+            return <MenuItem key={index} value={key} primaryText={SORT_FILTER_SELECT_OPTIONS_BY_TYPE[type][key]} />
           })
   ];
 
