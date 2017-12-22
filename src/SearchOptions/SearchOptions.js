@@ -10,6 +10,7 @@ import HardwareKeyboardArrowRight from 'material-ui/svg-icons/hardware/keyboard-
 import './SearchOptions.css';
 
 const SearchOptions = ({
+  handleSearchTypeChange,
   handleSortFilterChange,
   handleToggle,
   open,
@@ -39,6 +40,16 @@ const SearchOptions = ({
       </div>
       <div className={panelClasses}>
         <div className='search-options-panel-content'>
+          <SelectField
+            floatingLabelText='Type'
+            floatingLabelFixed
+            onChange={handleSearchTypeChange}
+            value={searchType}
+          >
+            <MenuItem value='repositories' primaryText='Repositories' />
+            <MenuItem value='users' primaryText='Users' />
+          </SelectField>
+
           <SelectField
             floatingLabelText='Sort By'
             floatingLabelFixed
