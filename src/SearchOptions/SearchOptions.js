@@ -45,6 +45,7 @@ const SearchOptions = ({
           <SelectField
             floatingLabelText='Type'
             floatingLabelFixed
+            id='searchType'
             onChange={handleSearchTypeChange}
             value={searchType}
           >
@@ -55,6 +56,7 @@ const SearchOptions = ({
           <SelectField
             floatingLabelText='Sort By'
             floatingLabelFixed
+            id='sortFilter'
             onChange={handleSortFilterChange}
             value={sortFilter}
           >
