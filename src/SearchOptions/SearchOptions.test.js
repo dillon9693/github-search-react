@@ -62,8 +62,6 @@ describe('SearchOptions', () => {
   });
 
   it('renders the sortFilter SelectField correctly when type is \'repositories\'', () => {
-    props.searchType = 'repositories';
-
     const selects = searchOptionsShallow().find('SelectField');
 
     const filterSelectField = selects.filterWhere(select => select.prop('id') === 'sortFilter');
