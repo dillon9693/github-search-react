@@ -57,6 +57,23 @@ describe('SearchOptions', () => {
     expect(filterMenuItems.get(3).props.value).toEqual('updated');
   });
 
+  it('renders the sortFilter SelectField correctly when type is \'users\'', () => {
+    props.searchType = 'users';
+
+    const selects = searchOptionsShallow().find('SelectField');
+
+    const filterSelectField = selects.filterWhere(select => select.prop('id') === 'sortFilter');
+    expect(filterSelectField.prop('value')).toEqual('');
+
+    const filterMenuItems = filterSelectField.find('MenuItem');
+    expect(filterMenuItems.length).toEqual(4);
+
+    expect(filterMenuItems.get(0).props.value).toEqual('');
+    expect(filterMenuItems.get(1).props.value).toEqual('forks');
+    expect(filterMenuItems.get(2).props.value).toEqual('stars');
+    expect(filterMenuItems.get(3).props.value).toEqual('updated');
+  });
+
   it('displays the HardwareKeyboardArrowRight SVG icon when the search options panel is closed', () => {
     const panelContent = searchOptionsShallow().find('.search-options-toggle-panel-content IconButton HardwareKeyboardArrowRight');
     expect(panelContent.length).toEqual(1);
