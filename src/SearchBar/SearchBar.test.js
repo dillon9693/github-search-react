@@ -30,7 +30,10 @@ describe('SearchBar', () => {
   };
 
   beforeEach(() => {
-    props = {};
+    props = {
+      searchType: 'repositories',
+      sortFilter: ''
+    };
 
     shallowSearchBar = undefined;
     mountedSearchBar = undefined;
@@ -42,7 +45,6 @@ describe('SearchBar', () => {
   });
 
   it('should render a label with \'Sorted by Best Match\' when the sort filter is empty', () => {
-    props.sortFilter = '';
     const textField = searchBarMounted().find('TextField');
     expect(textField.find('label').text()).toEqual('Search (sorted by Best Match)');
   });
