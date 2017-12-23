@@ -2,6 +2,8 @@ import React from 'react';
 
 import SearchOptions from './SearchOptions';
 
+import { SORT_FILTER_SELECT_OPTIONS_BY_TYPE } from '../utils/constants';
+
 describe('SearchOptions', () => {
   let props;
   let shallowSearchOptions;
@@ -60,6 +62,8 @@ describe('SearchOptions', () => {
   });
 
   it('renders the sortFilter SelectField correctly when type is \'repositories\'', () => {
+    props.searchType = 'repositories';
+
     const selects = searchOptionsShallow().find('SelectField');
 
     const filterSelectField = selects.filterWhere(select => select.prop('id') === 'sortFilter');
@@ -69,9 +73,10 @@ describe('SearchOptions', () => {
     expect(filterMenuItems.length).toEqual(4);
 
     expect(filterMenuItems.get(0).props.value).toEqual('');
-    expect(filterMenuItems.get(1).props.value).toEqual('forks');
-    expect(filterMenuItems.get(2).props.value).toEqual('stars');
-    expect(filterMenuItems.get(3).props.value).toEqual('updated');
+
+    for(let [index, key] of Object.keys(SORT_FILTER_SELECT_OPTIONS_BY_TYPE[props.searchType]).entries()) {
+      expect(filterMenuItems.get(index + 1).props.value).toEqual(key);
+    }
   });
 
   it('renders the sortFilter SelectField correctly when type is \'users\'', () => {
@@ -85,10 +90,9 @@ describe('SearchOptions', () => {
     const filterMenuItems = filterSelectField.find('MenuItem');
     expect(filterMenuItems.length).toEqual(4);
 
-    expect(filterMenuItems.get(0).props.value).toEqual('');
-    expect(filterMenuItems.get(1).props.value).toEqual('forks');
-    expect(filterMenuItems.get(2).props.value).toEqual('stars');
-    expect(filterMenuItems.get(3).props.value).toEqual('updated');
+    for(let [index, key] of Object.keys(SORT_FILTER_SELECT_OPTIONS_BY_TYPE[props.searchType]).entries()) {
+      expect(filterMenuItems.get(index + 1).props.value).toEqual(key);
+    }
   });
 
   it('displays the HardwareKeyboardArrowRight SVG icon when the search options panel is closed', () => {
