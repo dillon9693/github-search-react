@@ -57,8 +57,8 @@ describe('SearchOptions', () => {
     const typeMenuItems = typeSelectField.find('MenuItem');
     expect(typeMenuItems.length).toEqual(2);
 
-    expect(typeMenuItems.get(0).prop('value')).toEqual('repositories');
-    expect(typeMenuItems.get(1).props('value')).toEqual('users');
+    expect(typeMenuItems.get(0).props.value).toEqual('repositories');
+    expect(typeMenuItems.get(1).props.value).toEqual('users');
   });
 
   it('renders the sortFilter SelectField correctly when type is \'repositories\'', () => {
