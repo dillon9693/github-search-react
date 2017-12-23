@@ -42,16 +42,20 @@ describe('SearchOptions', () => {
     expect(searchOptionsShallow().find('.search-options').length).toEqual(1);
   });
 
-  it('renders a SelectField with 4 MenuItem children', () => {
-    const select = searchOptionsShallow().find('SelectField');
-    expect(select.length).toEqual(1);
-    const menuItems = select.find('MenuItem');
-    expect(menuItems.length).toEqual(4);
+  it('renders a SelectFields correctly when type is \'repositories\'', () => {
+    const selects = searchOptionsShallow().find('SelectField');
+    expect(selects.length).toEqual(2);
 
-    expect(menuItems.get(0).props.value).toEqual('');
-    expect(menuItems.get(1).props.value).toEqual('forks');
-    expect(menuItems.get(2).props.value).toEqual('stars');
-    expect(menuItems.get(3).props.value).toEqual('updated');
+    const filterSelectField = selects.filterWhere(select => select.prop('id') === 'sortFilter');
+    expect(filterSelectField.prop('value')).toEqual('');
+
+    const filterMenuItems = filterSelectField.find('MenuItem');
+    expect(filterMenuItems.length).toEqual(4);
+
+    expect(filterMenuItems.get(0).props.value).toEqual('');
+    expect(filterMenuItems.get(1).props.value).toEqual('forks');
+    expect(filterMenuItems.get(2).props.value).toEqual('stars');
+    expect(filterMenuItems.get(3).props.value).toEqual('updated');
   });
 
   it('displays the HardwareKeyboardArrowRight SVG icon when the search options panel is closed', () => {
