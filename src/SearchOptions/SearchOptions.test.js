@@ -42,9 +42,8 @@ describe('SearchOptions', () => {
     expect(searchOptionsShallow().find('.search-options').length).toEqual(1);
   });
 
-  it('renders a SelectFields correctly when type is \'repositories\'', () => {
+  it('renders the sortFilter SelectField correctly when type is \'repositories\'', () => {
     const selects = searchOptionsShallow().find('SelectField');
-    expect(selects.length).toEqual(2);
 
     const filterSelectField = selects.filterWhere(select => select.prop('id') === 'sortFilter');
     expect(filterSelectField.prop('value')).toEqual('');
