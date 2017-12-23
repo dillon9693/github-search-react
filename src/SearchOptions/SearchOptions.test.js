@@ -47,6 +47,18 @@ describe('SearchOptions', () => {
     expect(selects.length).toEqual(2);
   });
 
+  it('renders the search type SelectField with 2 MenuItems', () => {
+    const selects = searchOptionsShallow().find('SelectField');
+
+    const typeSelectField = selects.filterWhere(select => select.prop('id') === 'searchType');
+
+    const typeMenuItems = typeSelectField.find('MenuItem');
+    expect(typeMenuItems.length).toEqual(2);
+
+    expect(typeMenuItems.get(0).prop('value')).toEqual('repositories');
+    expect(typeMenuItems.get(1).props('value')).toEqual('users');
+  });
+
   it('renders the sortFilter SelectField correctly when type is \'repositories\'', () => {
     const selects = searchOptionsShallow().find('SelectField');
 
