@@ -106,7 +106,7 @@ describe('SearchOptions', () => {
 
   it('calls handleSortFilterChange function when the sort filter SelectField is changed', () => {
     props.handleSortFilterChange = jest.fn();
-    const select = searchOptionsShallow().find('SelectField');
+    const select = searchOptionsShallow().find('SelectField').filterWhere(select => select.prop('id') === 'sortFilter');
     select.simulate('change');
     expect(props.handleSortFilterChange.mock.calls.length).toEqual(1);
   });
@@ -119,6 +119,7 @@ describe('SearchOptions', () => {
 
   it('sets the value of the SelectField when the sortFilter prop is set', () => {
     props.sortFilter = 'forks';
-    expect(searchOptionsShallow().find('SelectField').prop('value')).toEqual('forks');
+    const select = searchOptionsShallow().find('SelectField').filterWhere(select => select.prop('id') === 'sortFilter');
+    expect(select.prop('value')).toEqual('forks');
   });
 });
