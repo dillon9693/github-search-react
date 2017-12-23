@@ -84,6 +84,7 @@ class App extends Component {
         <div className="search-container">
           <SearchBar
             handleSearchInput={this.handleSearchInput}
+            searchType={searchType}
             sortFilter={sortFilter}
           />
           <SearchOptions

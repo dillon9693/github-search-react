@@ -2,18 +2,17 @@ import React from 'react';
 
 import TextField from 'material-ui/TextField';
 
-const sortFilterDict = {
-  '': 'Best Match',
-  'forks': 'Forks',
-  'stars': 'Stars',
-  'updated': 'Recently Updated'
-};
+import { SORT_FILTER_SELECT_OPTIONS_BY_TYPE } from '../utils/constants';
 
-const SearchBar = ({ handleSearchInput, sortFilter }) => {
+const SearchBar = ({ handleSearchInput, searchType, sortFilter }) => {
+  const sortedBy = sortFilter
+                    ? SORT_FILTER_SELECT_OPTIONS_BY_TYPE[searchType][sortFilter]
+                    : 'Best Match';
+
   return (
     <div>
       <TextField
-        floatingLabelText={`Search (sorted by ${sortFilterDict[sortFilter]})`}
+        floatingLabelText={`Search (sorted by ${sortedBy})`}
         fullWidth
         onChange={(e) => handleSearchInput(e.target.value)}
       />
