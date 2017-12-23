@@ -42,6 +42,11 @@ describe('SearchOptions', () => {
     expect(searchOptionsShallow().find('.search-options').length).toEqual(1);
   });
 
+  it('renders 2 SelectFields', () => {
+    const selects = searchOptionsShallow().find('SelectField');
+    expect(selects.length).toEqual(2);
+  });
+
   it('renders the sortFilter SelectField correctly when type is \'repositories\'', () => {
     const selects = searchOptionsShallow().find('SelectField');
 
