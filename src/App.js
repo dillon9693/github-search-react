@@ -17,6 +17,7 @@ class App extends Component {
     this.state = {
       currentPage: 1,
       displaySearchOptions: false,
+      isLoading: false,
       results: [],
       sortFilter: '',
       searchTerm: '',
@@ -57,6 +58,7 @@ class App extends Component {
   }
 
   async search(searchTerm) {
+    this.setLoading(true);
     const { displaySearchOptions, searchType, sortFilter } = this.state;
     const options = {};
 
@@ -70,6 +72,12 @@ class App extends Component {
     this.setState({
       results,
       searchTerm
+    }, () => this.setLoading(false));
+  }
+
+  setLoading = (isLoading) => {
+    this.setState({
+      isLoading
     });
   }
 
