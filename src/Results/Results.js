@@ -3,9 +3,17 @@ import React from 'react';
 import RepoResult from '../RepoResult/RepoResult';
 import UserResult from '../UserResult/UserResult';
 
-const Results = ({ results, searchType, searchTerm }) => {
+import loadingIcon from '../img/loading-icon.svg';
+
+const Results = ({ isLoading, results, searchType, searchTerm }) => {
   return (
     <div className="results-container">
+      {
+        isLoading &&
+          <div className='loading-overlay'>
+            <img src={loadingIcon} alt='Loading' />
+          </div>
+      }
       {
         results.length > 0
         ? results.map((result) => {

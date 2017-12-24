@@ -82,7 +82,7 @@ class App extends Component {
   }
 
   render() {
-    const { displaySearchOptions, searchTerm, searchType, sortFilter, results } = this.state;
+    const { displaySearchOptions, isLoading, searchTerm, searchType, sortFilter, results } = this.state;
 
     return (
       <div>
@@ -107,6 +107,7 @@ class App extends Component {
           {
             searchTerm.length > 0
             ? <Results
+                isLoading={isLoading}
                 results={results}
                 searchType={searchType}
                 searchTerm={searchTerm} />
