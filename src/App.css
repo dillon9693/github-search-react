@@ -6,7 +6,7 @@
 .results-empty {
   margin: 1em 0;
 }
-.results-container .result {
+.result {
   width: 100%;
   margin: 5px 0;
   border: 1px solid #CCC;
@@ -19,7 +19,7 @@
   color: #444;
   text-decoration: none;
 }
-.results-container .result:hover {
+.result:hover {
   background: #EEE;
 }
 
