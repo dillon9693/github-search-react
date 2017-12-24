@@ -6,7 +6,7 @@ import Results from './Results/Results';
 import SearchBar from './SearchBar/SearchBar';
 import SearchOptions from './SearchOptions/SearchOptions';
 
-import { searchRepositories } from './utils/github';
+import { searchGithub } from './utils/github';
 
 import './App.css';
 
@@ -57,14 +57,15 @@ class App extends Component {
   }
 
   async search(searchTerm) {
-    const { displaySearchOptions, sortFilter } = this.state;
+    const { displaySearchOptions, searchType, sortFilter } = this.state;
     const options = {};
 
     if(displaySearchOptions) {
       options.sort = sortFilter;
     }
 
-    const results = await searchRepositories(searchTerm, options);
+
+    const results = await searchGithub(searchTerm, searchType, options);
 
     this.setState({
       results,
