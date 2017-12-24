@@ -13,4 +13,19 @@ body {
 .text-bold {
   font-weight: bold;
 }
+.loading-overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1500;
+  background: rgba(0, 0, 0, 0.4);
+}
+.loading-overlay img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 /* End Helpere classes */
