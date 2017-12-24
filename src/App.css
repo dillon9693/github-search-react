@@ -13,7 +13,7 @@
   box-shadow: 0 2px 5px #CCC;
   transition: 0.3s all;
 }
-.results-container .result > a {
+.result > a {
   display: block;
   padding: 20px 10px;
   color: #444;
@@ -23,15 +23,14 @@
   background: #EEE;
 }
 
-
-.results-container .repo-result .title {
+.repo-result .title {
   font-weight: bold;
 }
-.results-container .repo-result .owner {
+.repo-result .owner {
   display: block;
   margin-top: 1em;
 }
-.results-container .repo-result .description {
+.repo-result .description {
   margin-top: 1em;
 }
 
