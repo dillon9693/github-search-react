@@ -30,6 +30,7 @@ describe('Results', () => {
 
   beforeEach(() => {
     props = {
+      isLoading: false,
       searchType: 'repositories',
       results: []
     };
@@ -41,6 +42,21 @@ describe('Results', () => {
   it('should render a div with results-container class', () => {
     var list = resultsShallow().find('div.results-container');
     expect(list.length).toEqual(1);
+  });
+
+  it('should not render a loading overlay when isLoading prop is false', () => {
+    expect(resultsShallow().find('.loading-overlay').length).toEqual(0);
+  });
+
+  it('should render a loading overlay when isLoading prop is true', () => {
+    props.isLoading = true;
+
+    const overlay = resultsShallow().find('.loading-overlay');
+    const overlaySpinnerImg = overlay.find('img');
+    expect(overlay.length).toEqual(1);
+
+    expect(overlaySpinnerImg.length).toEqual(1);
+    expect(overlaySpinnerImg.prop('src')).toEqual('loading-icon.svg');
   });
 
   describe('Repositories search', () => {
