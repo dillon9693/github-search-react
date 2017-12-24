@@ -98,7 +98,10 @@ class App extends Component {
           />
           {
             searchTerm.length > 0
-            ? <Results results={results} searchTerm={searchTerm} />
+            ? <Results
+                results={results}
+                searchType={searchType}
+                searchTerm={searchTerm} />
             : <div className="results-empty">
                 Search for Github <span className='text-bold'>{searchType}</span> using the search bar above
               </div>

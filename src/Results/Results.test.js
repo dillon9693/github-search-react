@@ -29,6 +29,7 @@ describe('Results', () => {
 
   beforeEach(() => {
     props = {
+      searchType: 'repositories',
       results: []
     };
 
