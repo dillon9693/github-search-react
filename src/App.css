@@ -6,20 +6,20 @@
 .results-empty {
   margin: 1em 0;
 }
-.results-container .repo-result {
+.results-container .result {
   width: 100%;
   margin: 5px 0;
   border: 1px solid #CCC;
   box-shadow: 0 2px 5px #CCC;
   transition: 0.3s all;
 }
-.results-container .repo-result > a {
+.results-container .result > a {
   display: block;
   padding: 20px 10px;
   color: #444;
   text-decoration: none;
 }
-.results-container .repo-result:hover {
+.results-container .result:hover {
   background: #EEE;
 }
 
