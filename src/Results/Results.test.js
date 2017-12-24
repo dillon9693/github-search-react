@@ -3,6 +3,7 @@ import React from 'react';
 import Results from './Results';
 
 import repositoryMock from '../__mocks__/repositoryMock';
+import userMock from '../__mocks__/userMock';
 
 describe('Results', () => {
   let props;
@@ -64,5 +65,35 @@ describe('Results', () => {
 
     var repoResults = resultsShallow().find('RepoResult');
     expect(repoResults.length).toEqual(5);
+  });
+
+  describe('Users search', () => {
+    beforeEach(() => {
+      props.searchType = 'users';
+    });
+
+    it('should not render a UserResult component', () => {
+      var userResults = resultsShallow().find('UserResult');
+      expect(userResults.length).toEqual(0);
+    });
+
+    it('should render 1 UserResult component', () => {
+      props.results = [
+        userMock
+      ];
+
+      var userResults = resultsShallow().find('UserResult');
+      expect(userResults.length).toEqual(1);
+    });
+
+    it('should render 5 UserResult component', () => {
+      props.results = [
+        userMock, userMock, userMock,
+        userMock, userMock
+      ];
+
+      var userResults = resultsShallow().find('UserResult');
+      expect(userResults.length).toEqual(5);
+    });
   });
 });
