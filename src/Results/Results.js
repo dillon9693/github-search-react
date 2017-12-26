@@ -23,6 +23,8 @@ const Results = ({ isLoading, results, searchType, searchTerm }) => {
             else if(searchType === 'users') {
               return <UserResult key={result.id} result={result} />;
             }
+
+            return null;
           })
         : <div className="results-empty">No results found for "<span class="text-bold">{searchTerm}</span>".</div>
       }
