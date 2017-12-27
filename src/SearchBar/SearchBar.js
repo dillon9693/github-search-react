@@ -4,7 +4,11 @@ import TextField from 'material-ui/TextField';
 
 import { SORT_FILTER_SELECT_OPTIONS_BY_TYPE } from '../utils/constants';
 
-const SearchBar = ({ handleSearchInput, searchType, sortFilter }) => {
+const SearchBar = ({
+  handleSearchInput,
+  searchType,
+  sortFilter
+}) => {
   const sortedBy = sortFilter
                     ? SORT_FILTER_SELECT_OPTIONS_BY_TYPE[searchType][sortFilter]
                     : 'Best Match';
