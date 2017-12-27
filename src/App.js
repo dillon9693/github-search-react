@@ -70,9 +70,10 @@ class App extends Component {
     const results = await searchGithub(searchTerm, searchType, options);
 
     this.setState({
+      isLoading: false,
       results,
       searchTerm
-    }, () => this.setLoading(false));
+    });
   }
 
   setLoading = (isLoading) => {
