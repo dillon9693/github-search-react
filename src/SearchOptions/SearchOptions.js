@@ -7,7 +7,10 @@ import SelectField  from 'material-ui/SelectField';
 import HardwareKeyboardArrowDown from 'material-ui/svg-icons/hardware/keyboard-arrow-down';
 import HardwareKeyboardArrowRight from 'material-ui/svg-icons/hardware/keyboard-arrow-right';
 
-import { SORT_FILTER_SELECT_OPTIONS_BY_TYPE } from '../utils/constants';
+import {
+  GITHUB_API_TYPES,
+  SORT_FILTER_SELECT_OPTIONS_BY_TYPE
+} from '../utils/constants';
 
 import './SearchOptions.css';
 
@@ -49,8 +52,7 @@ const SearchOptions = ({
             onChange={handleSearchTypeChange}
             value={searchType}
           >
-            <MenuItem value='repositories' primaryText='Repositories' />
-            <MenuItem value='users' primaryText='Users' />
+            {buildSearchTypeOptions()}
           </SelectField>
 
           <SelectField
@@ -69,6 +71,11 @@ const SearchOptions = ({
 }
 
 export default SearchOptions;
+
+function buildSearchTypeOptions() {
+  return Object.keys(GITHUB_API_TYPES).map(key => <MenuItem key={key} value={key} primaryText={GITHUB_API_TYPES[key]} />
+)
+}
 
 function buildSortOptions(type) {
   return [
