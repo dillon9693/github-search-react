@@ -21,7 +21,8 @@
   transition: 0.3s all;
 }
 .result > a {
-  display: block;
+  display: flex;
+  flex-direction: column;
   padding: 20px 10px;
   color: #444;
   text-decoration: none;
@@ -34,7 +35,6 @@
   font-weight: bold;
 }
 .repo-result .owner {
-  display: block;
   margin-top: 1em;
 }
 .repo-result .description {
@@ -42,7 +42,7 @@
 }
 
 .user-result > a {
-  display: flex;
+  flex-direction: row;
 }
 .user-result .avatar > img {
   width: 50px;
