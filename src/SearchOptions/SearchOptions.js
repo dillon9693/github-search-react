@@ -73,8 +73,7 @@ const SearchOptions = ({
 export default SearchOptions;
 
 function buildSearchTypeOptions() {
-  return Object.keys(GITHUB_API_TYPES).map(key => <MenuItem key={key} value={key} primaryText={GITHUB_API_TYPES[key]} />
-)
+  return Object.keys(GITHUB_API_TYPES).map(key => <MenuItem key={key} value={key} primaryText={GITHUB_API_TYPES[key]} />);
 }
 
 function buildSortOptions(type) {
