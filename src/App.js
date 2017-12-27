@@ -104,17 +104,12 @@ class App extends Component {
             sortFilter={sortFilter}
             searchType={searchType}
           />
-          {
-            searchTerm.length > 0
-            ? <Results
-                isLoading={isLoading}
-                results={results}
-                searchType={searchType}
-                searchTerm={searchTerm} />
-            : <div className="results-empty">
-                Search for Github <span className='text-bold'>{searchType}</span> using the search bar above
-              </div>
-          }
+          <Results
+            isLoading={isLoading}
+            results={results}
+            searchType={searchType}
+            searchTerm={searchTerm}
+          />
         </div>
       </div>
     );
