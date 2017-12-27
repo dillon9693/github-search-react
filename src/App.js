@@ -83,7 +83,14 @@ class App extends Component {
   }
 
   render() {
-    const { displaySearchOptions, isLoading, searchTerm, searchType, sortFilter, results } = this.state;
+    const {
+      displaySearchOptions,
+      isLoading,
+      searchTerm,
+      searchType,
+      sortFilter,
+      results
+    } = this.state;
 
     return (
       <div>
