@@ -59,13 +59,13 @@ class App extends Component {
 
   async search(searchTerm) {
     this.setLoading(true);
+
     const { displaySearchOptions, searchType, sortFilter } = this.state;
     const options = {};
 
     if(displaySearchOptions) {
       options.sort = sortFilter;
     }
-
 
     const results = await searchGithub(searchTerm, searchType, options);
 
