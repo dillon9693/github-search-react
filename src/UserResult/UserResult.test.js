@@ -47,7 +47,9 @@ describe('UserResult', () => {
   });
 
   it('should render an avatar image and login from mock', () => {
-    expect(userResultShallow().find('.avatar > img').prop('src')).toEqual(userMock.avatar_url);
+    const avatarImg = userResultShallow().find('.avatar > img');
+    expect(avatarImg.prop('src')).toEqual(userMock.avatar_url);
+    expect(avatarImg.prop('alt')).toEqual(`${userMock.login} avatar`)
     expect(userResultShallow().find('.login').text()).toEqual(userMock.login);
   });
 });
