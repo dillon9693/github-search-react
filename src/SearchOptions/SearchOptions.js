@@ -80,9 +80,7 @@ function buildSortOptions(type) {
   return [
     <MenuItem key={''} value='' primaryText='Best Match' />,
     ...Object.keys(SORT_FILTER_SELECT_OPTIONS_BY_TYPE[type])
-          .map((key, index) => {
-            return <MenuItem key={index} value={key} primaryText={SORT_FILTER_SELECT_OPTIONS_BY_TYPE[type][key]} />
-          })
+          .map(key => <MenuItem key={key} value={key} primaryText={SORT_FILTER_SELECT_OPTIONS_BY_TYPE[type][key]} />)
   ];
 
 }
