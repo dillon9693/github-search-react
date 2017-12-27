@@ -53,9 +53,9 @@ describe('SearchOptions', () => {
   });
 
   it('renders the search type SelectField with 2 MenuItems', () => {
-    const selects = searchOptionsShallow().find('SelectField');
-
-    const typeSelectField = selects.filterWhere(select => select.prop('id') === 'searchType');
+    const typeSelectField = searchOptionsShallow().find('SelectField')
+                                                  .filterWhere(select => select.prop('id') === 'searchType');
+    expect(typeSelectField.prop('value')).toEqual('repositories');
 
     const typeMenuItems = typeSelectField.find('MenuItem');
     expect(typeMenuItems.length).toEqual(2);
@@ -66,9 +66,8 @@ describe('SearchOptions', () => {
   });
 
   it('renders the sortFilter SelectField correctly when type is \'repositories\'', () => {
-    const selects = searchOptionsShallow().find('SelectField');
-
-    const filterSelectField = selects.filterWhere(select => select.prop('id') === 'sortFilter');
+    const filterSelectField = searchOptionsShallow().find('SelectField')
+                                                    .filterWhere(select => select.prop('id') === 'sortFilter');
     expect(filterSelectField.prop('value')).toEqual('');
 
     const filterMenuItems = filterSelectField.find('MenuItem');
@@ -84,9 +83,8 @@ describe('SearchOptions', () => {
   it('renders the sortFilter SelectField correctly when type is \'users\'', () => {
     props.searchType = 'users';
 
-    const selects = searchOptionsShallow().find('SelectField');
-
-    const filterSelectField = selects.filterWhere(select => select.prop('id') === 'sortFilter');
+    const filterSelectField = searchOptionsShallow().find('SelectField')
+                                                    .filterWhere(select => select.prop('id') === 'sortFilter');
     expect(filterSelectField.prop('value')).toEqual('');
 
     const filterMenuItems = filterSelectField.find('MenuItem');
