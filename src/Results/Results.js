@@ -27,7 +27,7 @@ const Results = ({ isLoading, results, searchType, searchTerm }) => {
 
                 return null;
               })
-            : <div>No results found for <span class="text-bold">{searchTerm}</span></div>
+            : <div>No results found for <span className="text-bold">{searchTerm}</span></div>
           : <div>Search for Github <span className='text-bold'>{searchType}</span> using the search bar above</div>
         }
     </div>
