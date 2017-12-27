@@ -2,7 +2,10 @@ import React from 'react';
 
 import SearchOptions from './SearchOptions';
 
-import { SORT_FILTER_SELECT_OPTIONS_BY_TYPE } from '../utils/constants';
+import {
+  GITHUB_API_TYPES,
+  SORT_FILTER_SELECT_OPTIONS_BY_TYPE
+} from '../utils/constants';
 
 describe('SearchOptions', () => {
   let props;
@@ -57,8 +60,9 @@ describe('SearchOptions', () => {
     const typeMenuItems = typeSelectField.find('MenuItem');
     expect(typeMenuItems.length).toEqual(2);
 
-    expect(typeMenuItems.get(0).props.value).toEqual('repositories');
-    expect(typeMenuItems.get(1).props.value).toEqual('users');
+    for(let [index, key] of Object.keys(GITHUB_API_TYPES).entries()) {
+      expect(typeMenuItems.get(index).props.value).toEqual(key);
+    }
   });
 
   it('renders the sortFilter SelectField correctly when type is \'repositories\'', () => {
