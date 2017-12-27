@@ -53,9 +53,9 @@ describe('Results', () => {
     props.isLoading = true;
 
     const overlay = resultsShallow().find('.loading-overlay');
-    const overlaySpinnerImg = overlay.find('img');
     expect(overlay.length).toEqual(1);
 
+    const overlaySpinnerImg = overlay.find('img');
     expect(overlaySpinnerImg.length).toEqual(1);
     expect(overlaySpinnerImg.prop('src')).toEqual('loading-icon.svg');
   });
