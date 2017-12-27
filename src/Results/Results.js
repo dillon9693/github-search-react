@@ -5,7 +5,12 @@ import UserResult from '../UserResult/UserResult';
 
 import loadingIcon from '../img/loading-icon.svg';
 
-const Results = ({ isLoading, results, searchType, searchTerm }) => {
+const Results = ({
+  isLoading,
+  results,
+  searchType,
+  searchTerm
+}) => {
   return (
     <div className="results-container">
         {
