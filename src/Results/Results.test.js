@@ -72,7 +72,7 @@ describe('Results', () => {
   });
 
   describe('Repositories search', () => {
-    it('should not render a RepoResult component', () => {
+    it('should not render a RepoResult component when results prop is empty', () => {
       var repoResults = resultsShallow().find('RepoResult');
       expect(repoResults.length).toEqual(0);
     });
@@ -86,7 +86,7 @@ describe('Results', () => {
       expect(repoResults.length).toEqual(1);
     });
 
-    it('should render 5 RepoResult component', () => {
+    it('should render 5 RepoResult components', () => {
       props.results = [
         repositoryMock, repositoryMock, repositoryMock,
         repositoryMock, repositoryMock
@@ -102,7 +102,7 @@ describe('Results', () => {
       props.searchType = 'users';
     });
 
-    it('should not render a UserResult component', () => {
+    it('should not render a UserResult component when results prop is empty', () => {
       var userResults = resultsShallow().find('UserResult');
       expect(userResults.length).toEqual(0);
     });
@@ -116,7 +116,7 @@ describe('Results', () => {
       expect(userResults.length).toEqual(1);
     });
 
-    it('should render 5 UserResult component', () => {
+    it('should render 5 UserResult components', () => {
       props.results = [
         userMock, userMock, userMock,
         userMock, userMock
