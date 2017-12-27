@@ -27,9 +27,9 @@ class App extends Component {
     this.searchDebounce = null;
   }
 
-  handleSearchInput = (term) => {
+  handleSearchInput = ({ target: { value }}) => {
     clearTimeout(this.searchDebounce);
-    this.searchDebounce = setTimeout(() => this.search(term), 500);
+    this.searchDebounce = setTimeout(() => this.search(value), 500);
   }
 
   handleSearchOptionsToggle = () => {

@@ -14,7 +14,7 @@ const SearchBar = ({ handleSearchInput, searchType, sortFilter }) => {
       <TextField
         floatingLabelText={`Search (sorted by ${sortedBy})`}
         fullWidth
-        onChange={(e) => handleSearchInput(e.target.value)}
+        onChange={handleSearchInput}
       />
     </div>
   );
