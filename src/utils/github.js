@@ -5,7 +5,7 @@ import { get } from 'axios';
 
 const GITHUB_API_URL = 'https://api.github.com';
 
-export const searchGithub = async (term, type = 'repositories', { sort = '', order = 'desc', page = 1 } = {}) => {
+export const searchGithub = async (term = '', type = 'repositories', { sort = '', order = 'desc', page = 1 } = {}) => {
   if(!term) {
     return [];
   }
