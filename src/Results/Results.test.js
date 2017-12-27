@@ -60,6 +60,15 @@ describe('Results', () => {
     expect(overlaySpinnerImg.prop('src')).toEqual('loading-icon.svg');
   });
 
+  it('should render a div with class \'results-empty\' when the searchTerm prop is not set', () => {
+    props.searchTerm = '';
+    expect(resultsShallow().find('.results-empty').length).toEqual(1);
+  });
+
+  it('should render a div with class \'results-empty\' when the results array prop is empty', () => {
+    expect(resultsShallow().find('.results-empty').length).toEqual(1);
+  });
+
   describe('Repositories search', () => {
     it('should not render a RepoResult component', () => {
       var repoResults = resultsShallow().find('RepoResult');
