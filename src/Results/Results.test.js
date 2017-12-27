@@ -31,6 +31,7 @@ describe('Results', () => {
   beforeEach(() => {
     props = {
       isLoading: false,
+      searchTerm : 'test',
       searchType: 'repositories',
       results: []
     };
