@@ -3,36 +3,54 @@
   margin: 10px 20px;
 }
 
-.results-empty {
-  margin: 1em 0;
+.results-container {
+  margin: 0.5em 0;
+  padding: 0.5em 0.2em;
+  min-height: 100vh;
+  position: relative;
 }
-.results-container .repo-result {
+.results-container .loading-overlay > img {
+  top: 150px;
+}
+
+.result {
   width: 100%;
   margin: 5px 0;
   border: 1px solid #CCC;
   box-shadow: 0 2px 5px #CCC;
   transition: 0.3s all;
 }
-.results-container .repo-result > a {
-  display: block;
+.result > a {
+  display: flex;
+  flex-direction: column;
   padding: 20px 10px;
   color: #444;
   text-decoration: none;
 }
-.results-container .repo-result:hover {
+.result:hover {
   background: #EEE;
 }
 
-
-.results-container .repo-result .title {
+.repo-result .title {
   font-weight: bold;
 }
-.results-container .repo-result .owner {
-  display: block;
+.repo-result .owner {
   margin-top: 1em;
 }
-.results-container .repo-result .description {
+.repo-result .description {
   margin-top: 1em;
+}
+
+.user-result > a {
+  flex-direction: row;
+}
+.user-result .avatar > img {
+  width: 50px;
+  height: 50px;
+}
+.user-result .login {
+  font-weight: bold;
+  margin-left: 1em;
 }
 
 @media screen and (min-width: 767px) {

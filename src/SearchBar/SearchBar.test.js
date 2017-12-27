@@ -4,6 +4,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import SearchBar from './SearchBar';
 
+import { SORT_FILTER_SELECT_OPTIONS_BY_TYPE } from '../utils/constants';
+
 describe('SearchBar', () => {
   let props;
   let shallowSearchBar;
@@ -30,7 +32,10 @@ describe('SearchBar', () => {
   };
 
   beforeEach(() => {
-    props = {};
+    props = {
+      searchType: 'repositories',
+      sortFilter: ''
+    };
 
     shallowSearchBar = undefined;
     mountedSearchBar = undefined;
@@ -42,27 +47,34 @@ describe('SearchBar', () => {
   });
 
   it('should render a label with \'Sorted by Best Match\' when the sort filter is empty', () => {
-    props.sortFilter = '';
+    const sortedByText = 'Best Match';
+
     const textField = searchBarMounted().find('TextField');
-    expect(textField.find('label').text()).toEqual('Search (sorted by Best Match)');
+    expect(textField.find('label').text()).toEqual(`Search (sorted by ${sortedByText})`);
   });
 
   it('should render a label with \'Sorted by Forks\' when the sort filter is forks', () => {
     props.sortFilter = 'forks';
+    const sortedByText = SORT_FILTER_SELECT_OPTIONS_BY_TYPE[props.searchType][props.sortFilter];
+
     const textField = searchBarMounted().find('TextField');
-    expect(textField.find('label').text()).toEqual('Search (sorted by Forks)');
+    expect(textField.find('label').text()).toEqual(`Search (sorted by ${sortedByText})`);
   });
 
   it('should render a label with \'Sorted by Stars\' when the sort filter is stars', () => {
     props.sortFilter = 'stars';
+    const sortedByText = SORT_FILTER_SELECT_OPTIONS_BY_TYPE[props.searchType][props.sortFilter];
+
     const textField = searchBarMounted().find('TextField');
-    expect(textField.find('label').text()).toEqual('Search (sorted by Stars)');
+    expect(textField.find('label').text()).toEqual(`Search (sorted by ${sortedByText})`);
   });
 
   it('should render a label with \'Sorted by Recently Updated\' when the sort filter is updated', () => {
     props.sortFilter = 'updated';
+    const sortedByText = SORT_FILTER_SELECT_OPTIONS_BY_TYPE[props.searchType][props.sortFilter];
+
     const textField = searchBarMounted().find('TextField');
-    expect(textField.find('label').text()).toEqual('Search (sorted by Recently Updated)');
+    expect(textField.find('label').text()).toEqual(`Search (sorted by ${sortedByText})`);
   });
 
   it('should call the handleSearchInput function when text is entered', () => {

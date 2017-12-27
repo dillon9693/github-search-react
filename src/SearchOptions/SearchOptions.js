@@ -7,12 +7,19 @@ import SelectField  from 'material-ui/SelectField';
 import HardwareKeyboardArrowDown from 'material-ui/svg-icons/hardware/keyboard-arrow-down';
 import HardwareKeyboardArrowRight from 'material-ui/svg-icons/hardware/keyboard-arrow-right';
 
+import {
+  GITHUB_API_TYPES,
+  SORT_FILTER_SELECT_OPTIONS_BY_TYPE
+} from '../utils/constants';
+
 import './SearchOptions.css';
 
 const SearchOptions = ({
+  handleSearchTypeChange,
   handleSortFilterChange,
   handleToggle,
   open,
+  searchType,
   sortFilter
 }) => {
   const panelClasses =
@@ -39,12 +46,23 @@ const SearchOptions = ({
       <div className={panelClasses}>
         <div className='search-options-panel-content'>
           <SelectField
+            floatingLabelText='Type'
+            floatingLabelFixed
+            id='searchType'
+            onChange={handleSearchTypeChange}
+            value={searchType}
+          >
+            {buildSearchTypeOptions()}
+          </SelectField>
+
+          <SelectField
             floatingLabelText='Sort By'
             floatingLabelFixed
+            id='sortFilter'
             onChange={handleSortFilterChange}
             value={sortFilter}
           >
-            {buildSortOptions()}
+            {buildSortOptions(searchType)}
           </SelectField>
         </div>
       </div>
@@ -54,11 +72,15 @@ const SearchOptions = ({
 
 export default SearchOptions;
 
-function buildSortOptions() {
+function buildSearchTypeOptions() {
+  return Object.keys(GITHUB_API_TYPES).map(key => <MenuItem key={key} value={key} primaryText={GITHUB_API_TYPES[key]} />);
+}
+
+function buildSortOptions(type) {
   return [
-    <MenuItem key={1} value='' primaryText='Best Match' />,
-    <MenuItem key={2} value='forks' primaryText='Forks' />,
-    <MenuItem key={3} value='stars' primaryText='Stars' />,
-    <MenuItem key={4} value='updated' primaryText='Recently Updated' />
+    <MenuItem key={''} value='' primaryText='Best Match' />,
+    ...Object.keys(SORT_FILTER_SELECT_OPTIONS_BY_TYPE[type])
+          .map(key => <MenuItem key={key} value={key} primaryText={SORT_FILTER_SELECT_OPTIONS_BY_TYPE[type][key]} />)
   ];
+
 }

@@ -1,24 +1,24 @@
 import axios from 'axios';
 import mockAdapter from 'axios-mock-adapter';
 
-import { searchRepositories } from '../github';
+import { searchGithub } from '../github';
 import repositoryMock from '../../__mocks__/repositoryMock';
 
 let axiosMock;
 
 describe('Github API functions', () => {
-  describe('searchRepositories', () => {
+  describe('searchGithub', () => {
     beforeEach(() => {
       axiosMock = new mockAdapter(axios);
     });
 
     it('should return an empty array if the term isn\'t set', async () => {
-      const results = await searchRepositories();
+      const results = await searchGithub();
       expect(results).toEqual([]);
     });
 
     it('should return an empty array if the term is the empty string', async () => {
-      const results = await searchRepositories();
+      const results = await searchGithub('');
       expect(results).toEqual([]);
     });
 
@@ -27,7 +27,7 @@ describe('Github API functions', () => {
         items: []
       });
 
-      const results = await searchRepositories('test');
+      const results = await searchGithub('test');
       expect(results.length).toEqual(0);
     });
 
@@ -39,7 +39,7 @@ describe('Github API functions', () => {
         ]
       });
 
-      const results = await searchRepositories('test');
+      const results = await searchGithub('test');
       expect(results.length).toEqual(2);
     });
   });

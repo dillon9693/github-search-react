@@ -2,6 +2,11 @@ import React from 'react';
 
 import SearchOptions from './SearchOptions';
 
+import {
+  GITHUB_API_TYPES,
+  SORT_FILTER_SELECT_OPTIONS_BY_TYPE
+} from '../utils/constants';
+
 describe('SearchOptions', () => {
   let props;
   let shallowSearchOptions;
@@ -30,6 +35,7 @@ describe('SearchOptions', () => {
       handleSortFilterChange: () => false,
       handleToggle: () => false,
       open: false,
+      searchType: 'repositories',
       sortFilter: ''
     };
 
@@ -41,16 +47,52 @@ describe('SearchOptions', () => {
     expect(searchOptionsShallow().find('.search-options').length).toEqual(1);
   });
 
-  it('renders a SelectField with 4 MenuItem children', () => {
-    const select = searchOptionsShallow().find('SelectField');
-    expect(select.length).toEqual(1);
-    const menuItems = select.find('MenuItem');
-    expect(menuItems.length).toEqual(4);
+  it('renders 2 SelectFields', () => {
+    const selects = searchOptionsShallow().find('SelectField');
+    expect(selects.length).toEqual(2);
+  });
 
-    expect(menuItems.get(0).props.value).toEqual('');
-    expect(menuItems.get(1).props.value).toEqual('forks');
-    expect(menuItems.get(2).props.value).toEqual('stars');
-    expect(menuItems.get(3).props.value).toEqual('updated');
+  it('renders the search type SelectField with 2 MenuItems', () => {
+    const typeSelectField = searchOptionsShallow().find('SelectField')
+                                                  .filterWhere(select => select.prop('id') === 'searchType');
+    expect(typeSelectField.prop('value')).toEqual('repositories');
+
+    const typeMenuItems = typeSelectField.find('MenuItem');
+    expect(typeMenuItems.length).toEqual(2);
+
+    for(let [index, key] of Object.keys(GITHUB_API_TYPES).entries()) {
+      expect(typeMenuItems.get(index).props.value).toEqual(key);
+    }
+  });
+
+  it('renders the sortFilter SelectField correctly when type is \'repositories\'', () => {
+    const filterSelectField = searchOptionsShallow().find('SelectField')
+                                                    .filterWhere(select => select.prop('id') === 'sortFilter');
+    expect(filterSelectField.prop('value')).toEqual('');
+
+    const filterMenuItems = filterSelectField.find('MenuItem');
+    expect(filterMenuItems.length).toEqual(4);
+
+    expect(filterMenuItems.get(0).props.value).toEqual('');
+
+    for(let [index, key] of Object.keys(SORT_FILTER_SELECT_OPTIONS_BY_TYPE[props.searchType]).entries()) {
+      expect(filterMenuItems.get(index + 1).props.value).toEqual(key);
+    }
+  });
+
+  it('renders the sortFilter SelectField correctly when type is \'users\'', () => {
+    props.searchType = 'users';
+
+    const filterSelectField = searchOptionsShallow().find('SelectField')
+                                                    .filterWhere(select => select.prop('id') === 'sortFilter');
+    expect(filterSelectField.prop('value')).toEqual('');
+
+    const filterMenuItems = filterSelectField.find('MenuItem');
+    expect(filterMenuItems.length).toEqual(4);
+
+    for(let [index, key] of Object.keys(SORT_FILTER_SELECT_OPTIONS_BY_TYPE[props.searchType]).entries()) {
+      expect(filterMenuItems.get(index + 1).props.value).toEqual(key);
+    }
   });
 
   it('displays the HardwareKeyboardArrowRight SVG icon when the search options panel is closed', () => {
@@ -66,7 +108,7 @@ describe('SearchOptions', () => {
 
   it('calls handleSortFilterChange function when the sort filter SelectField is changed', () => {
     props.handleSortFilterChange = jest.fn();
-    const select = searchOptionsShallow().find('SelectField');
+    const select = searchOptionsShallow().find('SelectField').filterWhere(select => select.prop('id') === 'sortFilter');
     select.simulate('change');
     expect(props.handleSortFilterChange.mock.calls.length).toEqual(1);
   });
@@ -79,6 +121,7 @@ describe('SearchOptions', () => {
 
   it('sets the value of the SelectField when the sortFilter prop is set', () => {
     props.sortFilter = 'forks';
-    expect(searchOptionsShallow().find('SelectField').prop('value')).toEqual('forks');
+    const select = searchOptionsShallow().find('SelectField').filterWhere(select => select.prop('id') === 'sortFilter');
+    expect(select.prop('value')).toEqual('forks');
   });
 });

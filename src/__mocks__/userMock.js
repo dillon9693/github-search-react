@@ -1,0 +1,20 @@
+module.exports = {
+  avatar_url: "https://avatars2.githubusercontent.com/u/5503742?v=4",
+  events_url: "https://api.github.com/users/dillon9693/events{/privacy}",
+  followers_url: "https://api.github.com/users/dillon9693/followers",
+  following_url: "https://api.github.com/users/dillon9693/following{/other_user}",
+  gists_url: "https://api.github.com/users/dillon9693/gists{/gist_id}",
+  gravatar_id: "",
+  html_url: "https://github.com/dillon9693",
+  id: 5503742,
+  login: "dillon9693",
+  organizations_url: "https://api.github.com/users/dillon9693/orgs",
+  received_events_url: "https://api.github.com/users/dillon9693/received_events",
+  repos_url: "https://api.github.com/users/dillon9693/repos",
+  score: 48.015186,
+  site_admin: false,
+  starred_url: "https://api.github.com/users/dillon9693/starred{/owner}{/repo}",
+  subscriptions_url: "https://api.github.com/users/dillon9693/subscriptions",
+  type: "User",
+  url: "https://api.github.com/users/dillon9693"
+};

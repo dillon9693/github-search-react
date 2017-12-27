@@ -6,7 +6,7 @@ import Results from './Results/Results';
 import SearchBar from './SearchBar/SearchBar';
 import SearchOptions from './SearchOptions/SearchOptions';
 
-import { searchRepositories } from './utils/github';
+import { searchGithub } from './utils/github';
 
 import './App.css';
 
@@ -17,24 +17,37 @@ class App extends Component {
     this.state = {
       currentPage: 1,
       displaySearchOptions: false,
+      isLoading: false,
       results: [],
       sortFilter: '',
-      searchTerm: ''
+      searchTerm: '',
+      searchType: 'repositories'
     };
 
     this.searchDebounce = null;
-
-    this.handleSearchInput = this.handleSearchInput.bind(this);
   }
 
-  handleSearchInput(term) {
+  handleSearchInput = ({ target: { value }}) => {
     clearTimeout(this.searchDebounce);
-    this.searchDebounce = setTimeout(() => this.search(term), 500);
+    this.searchDebounce = setTimeout(() => this.search(value), 500);
   }
 
   handleSearchOptionsToggle = () => {
     this.setState({
       displaySearchOptions: !this.state.displaySearchOptions
+    });
+  }
+
+  handleSearchTypeChange = (event, index, value) => {
+    // search type didn't actually change
+    if(value === this.state.searchType) {
+      return;
+    }
+
+    this.setState({
+      searchTerm: '',
+      searchType: value,
+      sortFilter: ''
     });
   }
 
@@ -45,23 +58,39 @@ class App extends Component {
   }
 
   async search(searchTerm) {
-    const { displaySearchOptions, sortFilter } = this.state;
+    this.setLoading(true);
+
+    const { displaySearchOptions, searchType, sortFilter } = this.state;
     const options = {};
 
     if(displaySearchOptions) {
       options.sort = sortFilter;
     }
 
-    const results = await searchRepositories(searchTerm, options);
+    const results = await searchGithub(searchTerm, searchType, options);
 
     this.setState({
+      isLoading: false,
       results,
       searchTerm
     });
   }
 
+  setLoading = (isLoading) => {
+    this.setState({
+      isLoading
+    });
+  }
+
   render() {
-    const { displaySearchOptions, searchTerm, sortFilter, results } = this.state;
+    const {
+      displaySearchOptions,
+      isLoading,
+      searchTerm,
+      searchType,
+      sortFilter,
+      results
+    } = this.state;
 
     return (
       <div>
@@ -72,21 +101,23 @@ class App extends Component {
         <div className="search-container">
           <SearchBar
             handleSearchInput={this.handleSearchInput}
+            searchType={searchType}
             sortFilter={sortFilter}
           />
           <SearchOptions
+            handleSearchTypeChange={this.handleSearchTypeChange}
             handleSortFilterChange={this.handleSortFilterChange}
             handleToggle={this.handleSearchOptionsToggle}
             open={displaySearchOptions}
             sortFilter={sortFilter}
+            searchType={searchType}
           />
-          {
-            searchTerm.length > 0
-            ? <Results results={results} searchTerm={searchTerm} />
-            : <div className="results-empty">
-                Search for Github repositories using the search bar above
-              </div>
-          }
+          <Results
+            isLoading={isLoading}
+            results={results}
+            searchType={searchType}
+            searchTerm={searchTerm}
+          />
         </div>
       </div>
     );
