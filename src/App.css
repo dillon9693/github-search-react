@@ -31,6 +31,9 @@
   background: #EEE;
 }
 
+.repo-result > a {
+  min-height: 112px;
+}
 .repo-result .title {
   font-weight: bold;
 }
@@ -43,6 +46,7 @@
 
 .user-result > a {
   flex-direction: row;
+  min-height: 96px;
 }
 .user-result .avatar > img {
   width: 50px;
