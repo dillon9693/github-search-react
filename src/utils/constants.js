@@ -7,6 +7,12 @@ export const EMPTY_REPO_RESULT = {
   }
 };
 
+export const EMPTY_USER_RESULT = {
+  avatar_url: '',
+  html_url: '',
+  login: ''
+};
+
 export const GITHUB_API_TYPES = {
   repositories: 'Repositories',
   users: 'Users'
