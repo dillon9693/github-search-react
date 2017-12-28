@@ -59,8 +59,8 @@ describe('RepoResult', () => {
     expect(description.text()).toEqual(repositoryMock.description);
   });
 
-  it('should render the description with only the \'description\' class when the description is set', () => {
-    props.result.description = '';
+  it('should render the description with the \'description\' and \'text-italic\' classes when the description is not set', () => {
+    props.result.description = null;
 
     const description = repoResultShallow().find('.description');
 
