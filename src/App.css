@@ -44,15 +44,15 @@
   margin-top: 1em;
 }
 
-.user-result > a {
+.users-result > a {
   flex-direction: row;
   min-height: 96px;
 }
-.user-result .avatar > img {
+.users-result .avatar > img {
   width: 50px;
   height: 50px;
 }
-.user-result .login {
+.users-result .login {
   font-weight: bold;
   margin-left: 1em;
 }
