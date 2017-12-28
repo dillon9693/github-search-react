@@ -16,15 +16,17 @@ describe('ResultPlaceholder', () => {
   };
 
   beforeEach(() => {
-    props = {};
+    props = {
+      type: 'repositories'
+    };
 
     shallowResultPlaceholder = undefined;
   });
 
-  it('should render a div with repo-result class', () => {
+  it('should render a div with repositories-result class', () => {
     var div = resultShallow();
     expect(div.hasClass('result')).toEqual(true);
-    expect(div.hasClass('repo-result')).toEqual(true);
+    expect(div.hasClass('repositories-result')).toEqual(true);
   });
 
   it('should render an anchor tag with href=\'javascript:void(0);\'', () => {

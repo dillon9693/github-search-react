@@ -8,7 +8,7 @@ const RepoResult = ({ result }) => {
   });
 
   return (
-    <div className="result repo-result">
+    <div className="result repositories-result">
       <a href={result.html_url} target="_blank">
         <div className="title">{result.name}</div>
         <div className="owner">{result.owner.login}</div>

@@ -31,16 +31,16 @@
   background: #EEE;
 }
 
-.repo-result > a {
+.repositories-result > a {
   min-height: 112px;
 }
-.repo-result .title {
+.repositories-result .title {
   font-weight: bold;
 }
-.repo-result .owner {
+.repositories-result .owner {
   margin-top: 1em;
 }
-.repo-result .description {
+.repositories-result .description {
   margin-top: 1em;
 }
 

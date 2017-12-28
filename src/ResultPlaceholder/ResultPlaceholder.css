@@ -1,11 +1,11 @@
-.repo-result .text-row:nth-child(1) {
+.repositories-result .text-row:nth-child(1) {
   width: 70px !important;
 }
-.repo-result .text-row:nth-child(2) {
+.repositories-result .text-row:nth-child(2) {
   margin-top: 1em !important;
   width: 70px !important;
 }
-.repo-result .text-row:nth-child(3) {
+.repositories-result .text-row:nth-child(3) {
   margin-top: 1em !important;
   width: 200px !important;
 }

@@ -36,13 +36,13 @@ describe('RepoResult', () => {
     mountedRepoResult = undefined;
   });
 
-  it('should render a div with repo-result class', () => {
-    var div = repoResultShallow().find('.repo-result');
+  it('should render a div with repositories-result class', () => {
+    var div = repoResultShallow().find('.repositories-result');
     expect(div.length).toEqual(1);
   });
 
   it('should render a link to the repository', () => {
-    const link = repoResultShallow().find('.repo-result > a');
+    const link = repoResultShallow().find('.repositories-result > a');
     expect(link.length).toEqual(1);
     expect(link.prop('href')).toEqual(repositoryMock.html_url);
   });
