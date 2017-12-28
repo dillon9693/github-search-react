@@ -7,8 +7,6 @@ import RepoResult from '../RepoResult/RepoResult';
 import ResultPlaceholder from '../ResultPlaceholder/ResultPlaceholder';
 import UserResult from '../UserResult/UserResult';
 
-import { EMPTY_REPO_RESULT } from '../utils/constants';
-
 import loadingIcon from '../img/loading-icon.svg';
 
 const Results = ({
@@ -43,7 +41,7 @@ const Results = ({
             : <div>Search for Github <span className='text-bold'>{searchType}</span> using the search bar above</div>
           : Array(5).fill().map((elem, index) => (
               <ReactPlaceholder key={index} ready={!isLoading} customPlaceholder={<ResultPlaceholder type={searchType} />}>
-                <RepoResult result={EMPTY_REPO_RESULT} />
+                <div></div>
               </ReactPlaceholder>
             ))
         }
