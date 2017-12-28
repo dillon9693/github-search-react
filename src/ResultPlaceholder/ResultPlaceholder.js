@@ -3,7 +3,7 @@ import { RectShape, TextBlock } from 'react-placeholder/lib/placeholders';
 
 import './ResultPlaceholder.css';
 
-const RepoResultPlaceholder = ({ type }) => (
+const ResultPlaceholder = ({ type }) => (
   <div className={`result ${type}-result`}>
     <a href="javascript:void(0);">
       {
@@ -16,4 +16,4 @@ const RepoResultPlaceholder = ({ type }) => (
   </div>
 );
 
-export default RepoResultPlaceholder;
+export default ResultPlaceholder;
