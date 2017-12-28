@@ -36,8 +36,8 @@ describe('ResultPlaceholder', () => {
     expect(div.hasClass('users-result')).toEqual(true);
   });
 
-  it('should render an anchor tag with href=\'javascript:void(0);\'', () => {
-    expect(resultShallow().children('a').prop('href')).toEqual('javascript:void(0);');
+  it('should render an anchor tag with href=\'#\'', () => {
+    expect(resultShallow().children('a').prop('href')).toEqual('#');
   });
 
   it('should render a TextBlock component', () => {
