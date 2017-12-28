@@ -2,7 +2,6 @@ import React from 'react';
 
 import RepoResult from './RepoResult';
 
-import { EMPTY_REPO_RESULT } from '../utils/constants';
 import repositoryMock from '../__mocks__/repositoryMock';
 
 describe('RepoResult', () => {
@@ -50,14 +49,6 @@ describe('RepoResult', () => {
   it('should render a title, owner, and description from mock', () => {
     expect(repoResultShallow().find('.title').text()).toEqual(repositoryMock.name);
     expect(repoResultShallow().find('.owner').text()).toEqual(repositoryMock.owner.login);
-  });
-
-  it('should render empty strings for html_url, title, owner, and description when the result prop is the EMPTY_REPO_RESULT constant', () => {
-    props.result = EMPTY_REPO_RESULT;
-    expect(repoResultShallow().find('a').prop('href')).toEqual(EMPTY_REPO_RESULT.html_url);
-    expect(repoResultShallow().find('.title').text()).toEqual(EMPTY_REPO_RESULT.name);
-    expect(repoResultShallow().find('.owner').text()).toEqual(EMPTY_REPO_RESULT.owner.login);
-    expect(repoResultShallow().find('.description').text()).toEqual('No description provided');
   });
 
   it('should render the description with only the \'description\' class when the description is set', () => {

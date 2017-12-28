@@ -1,18 +1,3 @@
-export const EMPTY_REPO_RESULT = {
-  description: '',
-  html_url: '',
-  name: '',
-  owner: {
-    login: ''
-  }
-};
-
-export const EMPTY_USER_RESULT = {
-  avatar_url: '',
-  html_url: '',
-  login: ''
-};
-
 export const GITHUB_API_TYPES = {
   repositories: 'Repositories',
   users: 'Users'
