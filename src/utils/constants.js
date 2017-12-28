@@ -1,3 +1,12 @@
+export const EMPTY_REPO_RESULT = {
+  description: '',
+  html_url: '',
+  name: '',
+  owner: {
+    login: ''
+  }
+};
+
 export const GITHUB_API_TYPES = {
   repositories: 'Repositories',
   users: 'Users'
