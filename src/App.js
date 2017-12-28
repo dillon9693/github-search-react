@@ -63,8 +63,6 @@ class App extends Component {
   }
 
   async search(searchTerm) {
-    this.setLoading(true);
-
     const { displaySearchOptions, searchType, sortFilter } = this.state;
     const options = {};
 
