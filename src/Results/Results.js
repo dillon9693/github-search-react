@@ -1,7 +1,13 @@
 import React from 'react';
 
+import ReactPlaceholder from 'react-placeholder';
+import 'react-placeholder/lib/reactPlaceholder.css';
+
 import RepoResult from '../RepoResult/RepoResult';
+import RepoResultPlaceholder from '../RepoResultPlaceholder/RepoResultPlaceholder';
 import UserResult from '../UserResult/UserResult';
+
+import { EMPTY_REPO_RESULT } from '../utils/constants';
 
 import loadingIcon from '../img/loading-icon.svg';
 
@@ -20,20 +26,26 @@ const Results = ({
             </div>
         }
         {
-          searchTerm.length > 0 // if search term is set
-          ? results.length > 0 // if there are any results
-            ? results.map((result) => {
-                if(searchType === 'repositories') {
-                  return <RepoResult key={result.id} result={result} />;
-                }
-                else if(searchType === 'users') {
-                  return <UserResult key={result.id} result={result} />;
-                }
+          !isLoading ?
+            searchTerm.length > 0 // if search term is set
+            ? results.length > 0 // if there are any results
+              ? results.map((result) => {
+                  if(searchType === 'repositories') {
+                    return <RepoResult key={result.id} result={result} />;
+                  }
+                  else if(searchType === 'users') {
+                    return <UserResult key={result.id} result={result} />;
+                  }
 
-                return null;
-              })
-            : <div>No results found for <span className="text-bold">{searchTerm}</span></div>
-          : <div>Search for Github <span className='text-bold'>{searchType}</span> using the search bar above</div>
+                  return null;
+                })
+              : <div>No results found for <span className="text-bold">{searchTerm}</span></div>
+            : <div>Search for Github <span className='text-bold'>{searchType}</span> using the search bar above</div>
+          : Array(5).fill().map((elem, index) => (
+              <ReactPlaceholder key={index} ready={!isLoading} customPlaceholder={<RepoResultPlaceholder />}>
+                <RepoResult result={EMPTY_REPO_RESULT} />
+              </ReactPlaceholder>
+            ))
         }
     </div>
   );
