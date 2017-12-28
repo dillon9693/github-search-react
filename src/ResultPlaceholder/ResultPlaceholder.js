@@ -5,7 +5,7 @@ import './ResultPlaceholder.css';
 
 const ResultPlaceholder = ({ type }) => (
   <div className={`result ${type}-result`}>
-    <a href="javascript:void(0);">
+    <a href="#">
       {
         type === 'users'
         ? <RectShape color='lightgray' style={{ width: 50, height: 50 }} />
