@@ -4,7 +4,7 @@ import ReactPlaceholder from 'react-placeholder';
 import 'react-placeholder/lib/reactPlaceholder.css';
 
 import RepoResult from '../RepoResult/RepoResult';
-import RepoResultPlaceholder from '../RepoResultPlaceholder/RepoResultPlaceholder';
+import ResultPlaceholder from '../ResultPlaceholder/ResultPlaceholder';
 import UserResult from '../UserResult/UserResult';
 
 import { EMPTY_REPO_RESULT } from '../utils/constants';
@@ -42,7 +42,7 @@ const Results = ({
               : <div>No results found for <span className="text-bold">{searchTerm}</span></div>
             : <div>Search for Github <span className='text-bold'>{searchType}</span> using the search bar above</div>
           : Array(5).fill().map((elem, index) => (
-              <ReactPlaceholder key={index} ready={!isLoading} customPlaceholder={<RepoResultPlaceholder />}>
+              <ReactPlaceholder key={index} ready={!isLoading} customPlaceholder={<ResultPlaceholder type={searchType} />}>
                 <RepoResult result={EMPTY_REPO_RESULT} />
               </ReactPlaceholder>
             ))
