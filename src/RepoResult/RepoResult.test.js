@@ -49,6 +49,24 @@ describe('RepoResult', () => {
   it('should render a title, owner, and description from mock', () => {
     expect(repoResultShallow().find('.title').text()).toEqual(repositoryMock.name);
     expect(repoResultShallow().find('.owner').text()).toEqual(repositoryMock.owner.login);
-    expect(repoResultShallow().find('.description').text()).toEqual(repositoryMock.description);
+    
+  });
+
+  it('should render the description with only the \'description\' class when the description is set', () => {
+    const description = repoResultShallow().find('.description');
+
+    expect(description.hasClass('description')).toEqual(true);
+    expect(description.hasClass('text-italic')).toEqual(false);
+    expect(description.text()).toEqual(repositoryMock.description);
+  });
+
+  it('should render the description with only the \'description\' class when the description is set', () => {
+    props.result.description = '';
+
+    const description = repoResultShallow().find('.description');
+
+    expect(description.hasClass('description')).toEqual(true);
+    expect(description.hasClass('text-italic')).toEqual(true);
+    expect(description.text()).toEqual('No description provided');
   });
 });
