@@ -8,7 +8,7 @@ const ResultPlaceholder = ({ type }) => (
     <a href="#">
       {
         type === 'users'
-        ? <RectShape color='lightgray' style={{ width: 50, height: 50 }} />
+        ? <RectShape color='lightgray' />
         : null
       }
       <TextBlock rows={type === 'users' ? 1 : 3} color='lightgray' />
