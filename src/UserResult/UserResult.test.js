@@ -35,13 +35,13 @@ describe('UserResult', () => {
     mountedUserResult = undefined;
   });
 
-  it('should render a div with user-result class', () => {
-    var div = userResultShallow().find('.user-result');
+  it('should render a div with users-result class', () => {
+    var div = userResultShallow().find('.users-result');
     expect(div.length).toEqual(1);
   });
 
   it('should render a link to the repository', () => {
-    const link = userResultShallow().find('.user-result > a');
+    const link = userResultShallow().find('.users-result > a');
     expect(link.length).toEqual(1);
     expect(link.prop('href')).toEqual(userMock.html_url);
   });

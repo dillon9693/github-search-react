@@ -10,7 +10,7 @@
   position: relative;
 }
 .results-container .loading-overlay > img {
-  top: 150px;
+  top: 250px;
 }
 
 .result {
@@ -31,24 +31,28 @@
   background: #EEE;
 }
 
-.repo-result .title {
+.repositories-result > a {
+  min-height: 112px;
+}
+.repositories-result .title {
   font-weight: bold;
 }
-.repo-result .owner {
+.repositories-result .owner {
   margin-top: 1em;
 }
-.repo-result .description {
+.repositories-result .description {
   margin-top: 1em;
 }
 
-.user-result > a {
+.users-result > a {
   flex-direction: row;
+  min-height: 96px;
 }
-.user-result .avatar > img {
+.users-result .avatar > img {
   width: 50px;
   height: 50px;
 }
-.user-result .login {
+.users-result .login {
   font-weight: bold;
   margin-left: 1em;
 }

@@ -33,6 +33,7 @@ describe('SearchBar', () => {
 
   beforeEach(() => {
     props = {
+      searchTerm: '',
       searchType: 'repositories',
       sortFilter: ''
     };
@@ -75,6 +76,11 @@ describe('SearchBar', () => {
 
     const textField = searchBarMounted().find('TextField');
     expect(textField.find('label').text()).toEqual(`Search (sorted by ${sortedByText})`);
+  });
+
+  it('should set the value of the SearchBar input based on the searchTerm prop', () => {
+    props.searchTerm = 'test';
+    expect(searchBarShallow().find('TextField').prop('value')).toEqual('test');
   });
 
   it('should call the handleSearchInput function when text is entered', () => {

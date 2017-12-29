@@ -1,0 +1,23 @@
+/* RepoResult placeholder styles */
+.repositories-result .text-row:nth-child(1) {
+  width: 70px !important;
+}
+.repositories-result .text-row:nth-child(2) {
+  margin-top: 1em !important;
+  width: 70px !important;
+}
+.repositories-result .text-row:nth-child(3) {
+  margin-top: 1em !important;
+  width: 200px !important;
+}
+/* End RepoResult placeholder styles */
+
+/* UsersResult placeholder styles */
+.users-result .rect-shape {
+  width: 50px !important;
+  height: 50px !important;
+}
+.users-result .text-block > .text-row:nth-child(1) {
+  width: 70px !important;
+}
+/* End UsersResult placeholder styles */

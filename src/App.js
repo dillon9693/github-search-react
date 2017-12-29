@@ -28,8 +28,13 @@ class App extends Component {
   }
 
   handleSearchInput = ({ target: { value }}) => {
-    clearTimeout(this.searchDebounce);
-    this.searchDebounce = setTimeout(() => this.search(value), 500);
+    this.setState({
+      isLoading: true,
+      searchTerm: value
+    }, () => {
+      clearTimeout(this.searchDebounce);
+      this.searchDebounce = setTimeout(() => this.search(value), 500);
+    });
   }
 
   handleSearchOptionsToggle = () => {
@@ -58,8 +63,6 @@ class App extends Component {
   }
 
   async search(searchTerm) {
-    this.setLoading(true);
-
     const { displaySearchOptions, searchType, sortFilter } = this.state;
     const options = {};
 
@@ -71,8 +74,7 @@ class App extends Component {
 
     this.setState({
       isLoading: false,
-      results,
-      searchTerm
+      results
     });
   }
 
@@ -101,6 +103,7 @@ class App extends Component {
         <div className="search-container">
           <SearchBar
             handleSearchInput={this.handleSearchInput}
+            searchTerm={searchTerm}
             searchType={searchType}
             sortFilter={sortFilter}
           />

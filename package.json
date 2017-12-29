@@ -4,9 +4,11 @@
   "private": true,
   "dependencies": {
     "axios": "^0.17.0",
+    "classnames": "^2.2.5",
     "material-ui": "^0.19.4",
     "react": "^16.1.0",
     "react-dom": "^16.1.0",
+    "react-placeholder": "^2.0.0",
     "react-scripts": "1.0.17"
   },
   "scripts": {

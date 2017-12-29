@@ -6,6 +6,7 @@ import { SORT_FILTER_SELECT_OPTIONS_BY_TYPE } from '../utils/constants';
 
 const SearchBar = ({
   handleSearchInput,
+  searchTerm,
   searchType,
   sortFilter
 }) => {
@@ -19,6 +20,7 @@ const SearchBar = ({
         floatingLabelText={`Search (sorted by ${sortedBy})`}
         fullWidth
         onChange={handleSearchInput}
+        value={searchTerm}
       />
     </div>
   );

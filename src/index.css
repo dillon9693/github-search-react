@@ -13,6 +13,9 @@ body {
 .text-bold {
   font-weight: bold;
 }
+.text-italic {
+  font-style: italic;
+}
 .loading-overlay {
   position: absolute;
   height: 100%;
